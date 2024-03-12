@@ -13,6 +13,10 @@
     margin-bottom: 30px;
 }
 
+.products-left .product-category li::first-letter {
+    text-transform: uppercase;
+}
+
 .products-left .category-title {
     position: relative;
     font-size: 20px;
@@ -40,7 +44,7 @@
 }
 
 .category-list {
-    display: none;
+    /*display: none;*/
     transition: 0.3s ease-out;
 }
 

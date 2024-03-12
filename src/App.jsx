@@ -77,34 +77,87 @@ function App() {
         return currentUser ? children : <Navigate to="/login"/>
     }
 
+    // const router = createBrowserRouter([
+    //     {
+    //         element: <RootLayout/>,
+    //         children: [
+    //             {
+    //                 path: "*",
+    //                 element: <NotFound/>,
+    //             },
+    //             {
+    //                 path: "/",
+    //                 element: <Home/>
+    //             },
+    //             {
+    //                 path: "/wishlist",
+    //                 element: <Wishlist/>
+    //             },
+    //             {
+    //                 path: "/cart",
+    //                 element: <Cart/>
+    //             },
+    //             {
+    //                 path: "products",
+    //                 element: <Products/>,
+    //                 children: [
+    //                     {
+    //                         path: ":id",
+    //                         element: <ProductDetail/>
+    //                     }
+    //
+    //                 ]
+    //             },
+    //             {
+    //                 element: <ProfileLayout accountData={data}/>,
+    //                 children: [
+    //                     {
+    //                         path: "/profile",
+    //                         element: <Dashboard/>
+    //                     }
+    //                 ]
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         path: "/login",
+    //         element: <Login/>
+    //     },
+    //     {
+    //         path: "/signup",
+    //         element: <Register/>
+    //     }
+    // ])
 
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<RootLayout/>}>
-                {products && <Route index element={<Home />}/>}
-                <Route path="/profile" element={
-                    <RequireAuth>
-                        <ProfileLayout accountData={data}/>
-                    </RequireAuth>
-                }>
-                    <Route index element={<Dashboard/>}/>
-                    <Route path="orders" element={<Orders/>}/>
-                    <Route path="downloads" element={<Downloads/>}/>
-                    <Route path="addresses" element={<Addresses/>}/>
-                    <Route path="account-details" element={<AccountDetail accountData={data}/>}/>
+            <>
+                <Route path="/" element={<RootLayout/>}>
+                    {products && <Route index element={<Home/>}/>}
+                    <Route path="/profile" element={
+                        <RequireAuth>
+                            <ProfileLayout accountData={data}/>
+                        </RequireAuth>
+                    }>
+                        <Route index element={<Dashboard/>}/>
+                        <Route path="orders" element={<Orders/>}/>
+                        <Route path="downloads" element={<Downloads/>}/>
+                        <Route path="addresses" element={<Addresses/>}/>
+                        <Route path="account-details" element={<AccountDetail accountData={data}/>}/>
+                    </Route>
+                    <Route path="/products" element={<ProductsLayout/>}>
+                        <Route index element={<Products/>}/>
+                        <Route path=":id" element={<ProductDetail/>}/>
+                        {/*<Route path={"notebooks"} element={<Noutbooks />} />*/}
+                    </Route>
+                    <Route path={"/about-us"} element={<About/>}/>
+                    <Route path="/wishlist" element={<Wishlist/>}/>
+                    <Route path="/cart" element={<Cart/>}/>
                 </Route>
-                <Route path="/products" element={<ProductsLayout/>}>
-                    <Route index element={<Products/>}/>
-                    <Route path=":id" element={<ProductDetail/>}/>
-                    {/*<Route path={"notebooks"} element={<Noutbooks />} />*/}
-                </Route>
-                <Route path={"/about-us"} element={<About/>}/>
+                <Route path="*" element={<NotFound/>}/>
                 <Route path="login" element={<Login/>}/>
                 <Route path="signup" element={<Register/>}/>
-                <Route path="/wishlist" element={<Wishlist/>}/>
-                <Route path="/cart" element={<Cart/>}/>
-                <Route path="*" element={<NotFound/>}/>
-            </Route>
+            </>
         )
     )
     return (

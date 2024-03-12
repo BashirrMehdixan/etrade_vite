@@ -14,24 +14,12 @@ import { addToCart } from "../../features/cart";
 import "./css/Products.css";
 import ProductCard from "../../components/ProductCard.jsx";
 import {ProductContext} from "../../context/ProductContext.jsx";
+import FilterCard from "../../components/FilterCard.jsx";
 
-const Smartphones = () => {
-    const {products} = useContext(ProductContext);
-    console.log(products)
+const Products = () => {
+    const {products, categories, brands} = useContext(ProductContext);
     const { id } = useParams();
-    const [openCategories, setOpenCategories] = useState({});
     const dispatch = useDispatch();
-    const catSlide = (category) => {
-        setOpenCategories(prevState => ({
-            ...prevState,
-            [category]: !prevState[category]
-        }));
-    };
-
-    const uniqueStorages = Array.from(new Set(products.map(product => product.storage)));
-    const uniqueModels = Array.from(new Set(products.map(product => product.brand)));
-    const uniqueRams = Array.from(new Set(products.map(product => product.ram)));
-    const uniqueColors = Array.from(new Set(products.map(product => product.colors)));
     const addWish = (product) => {
         dispatch(addToWishlist(product))
     }
@@ -49,70 +37,24 @@ const Smartphones = () => {
                     <div className="products-block">
                         <div className="products-left products-item">
                             <div className="product-category">
-                                <div className={`category-title ${openCategories['Model'] ? 'active' : ''}`}
-                                     onClick={() => catSlide('Model')}>
-                                    <span>Model</span>
+                                <div className={`category-title`}
+                                >
+                                    <span>Category</span>
                                 </div>
-                                <ul className={`category-list ${openCategories['Model'] ? 'open' : ''}`}>
-                                    {uniqueModels.map((model, index) => (
-                                        <li key={index}>
-                                            <label className="custom-radio">
-                                                <input type="radio" name="brand" />
-                                                <span className="checkmark"></span>
-                                                <span className="cat-name">{model}</span>
-                                            </label>
-                                        </li>
+                                <ul className={`category-list`}>
+                                    {categories.map((category, index) => (
+                                        <FilterCard key={index} data={category} type={'category'}/>
                                     ))}
                                 </ul>
                             </div>
                             <div className="product-category">
-                                <div className={`category-title ${openCategories['Storage'] ? 'active' : ''}`}
-                                     onClick={() => catSlide('Storage')}>
-                                    <span>Storage</span>
+                                <div className={`category-title`}
+                                >
+                                    <span>Brands</span>
                                 </div>
-                                <ul className={`category-list ${openCategories['Storage'] ? 'open' : ''}`}>
-                                    {uniqueStorages.map((storage, index) => (
-                                        <li key={index}>
-                                            <label className="custom-radio">
-                                                <input type="radio" name="storage" />
-                                                <span className="checkmark"></span>
-                                                <span className="cat-name">{storage}</span>
-                                            </label>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="product-category">
-                                <div className={`category-title ${openCategories['RAM'] ? 'active' : ''}`}
-                                     onClick={() => catSlide('RAM')}>
-                                    <span>RAM</span>
-                                </div>
-                                <ul className={`category-list ${openCategories['RAM'] ? 'open' : ''}`}>
-                                    {uniqueRams.map((ram, index) => (
-                                        <li key={index}>
-                                            <label className="custom-radio">
-                                                <input type="radio" name="ram" />
-                                                <span className="checkmark"></span>
-                                                <span className="cat-name">{ram}</span>
-                                            </label>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="product-category">
-                                <div className={`category-title ${openCategories['Colors'] ? 'active' : ''}`}
-                                     onClick={() => catSlide('Colors')}>
-                                    <span>Colors</span>
-                                </div>
-                                <ul className={`category-list ${openCategories['Colors'] ? 'open' : ''}`}>
-                                    {uniqueColors.map((color, index) => (
-                                        <li key={index}>
-                                            <label className="custom-radio">
-                                                <input type="radio" name="color" />
-                                                <span className="checkmark"></span>
-                                                <span className="cat-name">{color}</span>
-                                            </label>
-                                        </li>
+                                <ul className={`category-list`}>
+                                    {brands.map((brand, index) => (
+                                        <FilterCard key={index} data={brand} type={'brand'}/>
                                     ))}
                                 </ul>
                             </div>
@@ -148,4 +90,4 @@ const Smartphones = () => {
         </>
     );
 }
-export default Smartphones;
+export default Products;
