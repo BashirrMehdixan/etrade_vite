@@ -7,10 +7,13 @@ import NewArrivals from "./NewArrivals";
 import PopularProducts from "./PopularProducts";
 import HomeServices from "./HomeServices";
 import { Helmet } from "react-helmet";
+import {useContext} from "react";
+import {ProductContext} from "../../context/ProductContext.jsx";
 
-const Home = ({ products }) => {
+const Home = () => {
+    const {products} = useContext(ProductContext)
     return (
-        products.length > 0 &&
+        products.length &&
         <>
             <Helmet>
                 <title>eTrade | Home </title>
@@ -18,10 +21,10 @@ const Home = ({ products }) => {
             <HomeSlide />
             <HomeCategories />
             <Sales />
-            <HomeProducts products={products} />
+            <HomeProducts />
             <Feedbacks />
-            <NewArrivals products={products} />
-            <PopularProducts products={products} />
+            <NewArrivals />
+            <PopularProducts />
             <HomeServices />
         </>
     )

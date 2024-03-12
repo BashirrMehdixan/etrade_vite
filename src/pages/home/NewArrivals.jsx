@@ -1,11 +1,11 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import {useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Navigation} from 'swiper/modules';
 
 // Icons
-import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
-import { FaShoppingBasket, FaRegEye, FaRegHeart } from "react-icons/fa";
+import {IoIosArrowRoundForward, IoIosArrowRoundBack} from "react-icons/io";
+import {FaShoppingBasket} from "react-icons/fa";
 
 // Css
 import 'swiper/css';
@@ -14,10 +14,14 @@ import "./css/NewArrivals.css";
 
 // Actions
 import {addToCart} from "../../features/cart.jsx";
-import { addToWishlist } from "../../features/wishlist";
+import {addToWishlist} from "../../features/wishlist";
+import {useContext} from "react";
+import {ProductContext} from "../../context/ProductContext.jsx";
+import ArrivalCard from "../../components/ArrivalCard.jsx";
 
-const NewArrivals = ({ products }) => {
-    const { id } = useParams();
+const NewArrivals = () => {
+    const {products} = useContext(ProductContext);
+    const {id} = useParams();
     const dispatch = useDispatch();
     const addCart = (product) => {
         dispatch(addToCart(product));
@@ -31,19 +35,19 @@ const NewArrivals = ({ products }) => {
                 <div className="head-box products-head" data-aos="fade-down">
                     <p className="best-deal">
                         <span>
-                            <FaShoppingBasket />
+                            <FaShoppingBasket/>
                         </span>
-                        Tihs week's
+                        This week's
                     </p>
                     <p className="uni-head head1">
                         New Arrivals
                     </p>
                 </div>
                 <div className="swiper-product-btn image-swiper-button-next">
-                    <IoIosArrowRoundForward />
+                    <IoIosArrowRoundForward/>
                 </div>
                 <div className="swiper-product-btn image-swiper-button-prev">
-                    <IoIosArrowRoundBack />
+                    <IoIosArrowRoundBack/>
                 </div>
                 <Swiper
                     slidesPerView={1}
@@ -73,40 +77,7 @@ const NewArrivals = ({ products }) => {
                     {products.map((product, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                <div className="product-item">
-                                    <Link to={`/products/${product.id}`} className="product-img">
-                                        <img src={product.thumbnail} alt={product.title} />
-                                    </Link>
-                                    <p className={product.discountPercentage === 0 ? "none" : "discount"}>
-                                        {product.discountPercentage}% Off
-                                    </p>
-                                    <div className="product-info">
-                                        <Link to={`/products/${product.id}`}
-                                              className="product-name">{product.title}</Link>
-                                        <div className="product-prices">
-                                            <p className={"price sale-price"}>
-                                                ${product.discountPercentage ?
-                                                product.price - (product.price * (product.discountPercentage) / 100) :
-                                                product.price
-                                            }
-                                            </p>
-                                            <p className={product.discountPercentage === 0 ? 'none' : 'price product-price'}>
-                                                ${product.price - (product.price * (product.discountPercentage) / 100)}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="cart-action">
-                                        <button className="btn action-btn look-btn">
-                                            <FaRegEye />
-                                        </button>
-                                        <button className="btn cart-btn" onClick={() => addCart(product)}>
-                                            Add to Cart
-                                        </button>
-                                        <button className="btn action-btn wish-btn" onClick={() => addWish(product)}>
-                                            <FaRegHeart />
-                                        </button>
-                                    </div>
-                                </div>
+                                <ArrivalCard product={product} addCart={addCart} addWish={addWish}/>
                             </SwiperSlide>
                         )
                     })}

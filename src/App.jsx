@@ -1,10 +1,11 @@
-import { useEffect, useContext, useState } from 'react';
-import { createBrowserRouter, Route, createRoutesFromElements, RouterProvider, Navigate } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import { AuthContext } from './context/AuthContext';
+import {useEffect, useContext, useState} from 'react';
+import {createBrowserRouter, Route, createRoutesFromElements, RouterProvider, Navigate} from 'react-router-dom';
+import {Toaster} from 'react-hot-toast';
+import {AuthContext} from './context/AuthContext';
+import {ProductContext} from "./context/ProductContext.jsx";
 
-import { getDoc, doc } from "firebase/firestore";
-import { db } from './store/firebase.jsx';
+import {getDoc, doc} from "firebase/firestore";
+import {db} from './store/firebase.jsx';
 import AOS from 'aos';
 
 // CSS
@@ -32,8 +33,6 @@ import AccountDetail from "./pages/profile/AccountDetail";
 import About from "./pages/about/About";
 import NotFound from "./pages/NotFound";
 
-// Loaders
-import { SmartphonesData } from './data/databases';
 
 function App() {
     AOS.init({
@@ -57,24 +56,8 @@ function App() {
     document.addEventListener('scroll', () => {
         AOS.refreshHard();
     });
-
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const data = await SmartphonesData();
-                setProducts(data.products)
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-        };
-
-        fetchProducts();
-    }, []);
-
-
-    const { currentUser } = useContext(AuthContext);
+    const {currentUser} = useContext(AuthContext);
+    const {products} = useContext(ProductContext);
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -90,41 +73,43 @@ function App() {
             fetchData();
         }
     }, [currentUser]);
-    const RequireAuth = ({ children }) => {
-        return currentUser ? children : <Navigate to="/login" />
+    const RequireAuth = ({children}) => {
+        return currentUser ? children : <Navigate to="/login"/>
     }
+
+
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<RootLayout />}>
-                {products && <Route index element={<Home products={products} />} />}
+            <Route path="/" element={<RootLayout/>}>
+                {products && <Route index element={<Home />}/>}
                 <Route path="/profile" element={
                     <RequireAuth>
-                        <ProfileLayout accountData={data} />
+                        <ProfileLayout accountData={data}/>
                     </RequireAuth>
                 }>
-                    <Route index element={<Dashboard />} />
-                    <Route path="orders" element={<Orders />} />
-                    <Route path="downloads" element={<Downloads />} />
-                    <Route path="addresses" element={<Addresses />} />
-                    <Route path="account-details" element={<AccountDetail accountData={data} />} />
+                    <Route index element={<Dashboard/>}/>
+                    <Route path="orders" element={<Orders/>}/>
+                    <Route path="downloads" element={<Downloads/>}/>
+                    <Route path="addresses" element={<Addresses/>}/>
+                    <Route path="account-details" element={<AccountDetail accountData={data}/>}/>
                 </Route>
-                <Route path="/products" element={<ProductsLayout />}>
-                    <Route index element={<Products products={products} />} />
-                    <Route path=":id" element={<ProductDetail products={products} />} />
+                <Route path="/products" element={<ProductsLayout/>}>
+                    <Route index element={<Products/>}/>
+                    <Route path=":id" element={<ProductDetail/>}/>
                     {/*<Route path={"notebooks"} element={<Noutbooks />} />*/}
                 </Route>
-                <Route path={"/about-us"} element={<About />} />
-                <Route path="login" element={<Login />} />
-                <Route path="signup" element={<Register />} />
-                <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path={"/about-us"} element={<About/>}/>
+                <Route path="login" element={<Login/>}/>
+                <Route path="signup" element={<Register/>}/>
+                <Route path="/wishlist" element={<Wishlist/>}/>
+                <Route path="/cart" element={<Cart/>}/>
+                <Route path="*" element={<NotFound/>}/>
             </Route>
         )
     )
     return (
         <>
-            <RouterProvider router={router} />
+            <RouterProvider router={router}/>
             <Toaster
                 position="top-right"
                 reverseOrder={false}

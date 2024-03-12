@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useContext, useState} from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Helmet } from "react-helmet";
@@ -6,17 +6,18 @@ import { Helmet } from "react-helmet";
 // Layouts
 import Breadcrumb from "../../layouts/Breadcrumb";
 
-// Icons
-import { FaRegEye, FaRegHeart } from "react-icons/fa";
-
 // Actions
 import { addToWishlist } from "../../features/wishlist";
 import { addToCart } from "../../features/cart";
 
 // CSS
 import "./css/Products.css";
+import ProductCard from "../../components/ProductCard.jsx";
+import {ProductContext} from "../../context/ProductContext.jsx";
 
-const Smartphones = ({ products }) => {
+const Smartphones = () => {
+    const {products} = useContext(ProductContext);
+    console.log(products)
     const { id } = useParams();
     const [openCategories, setOpenCategories] = useState({});
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Smartphones = ({ products }) => {
     const uniqueModels = Array.from(new Set(products.map(product => product.brand)));
     const uniqueRams = Array.from(new Set(products.map(product => product.ram)));
     const uniqueColors = Array.from(new Set(products.map(product => product.colors)));
-    const addToWish = (product) => {
+    const addWish = (product) => {
         dispatch(addToWishlist(product))
     }
     const addCart = (product) => {
@@ -133,35 +134,7 @@ const Smartphones = ({ products }) => {
                             </div>
                             <div className="all-products">
                                 {products.map((product, index) => (
-                                    <div className="product-item hover-product" key={index}
-                                         id={`product-${product.id}`} data-aos="flip-right">
-                                        <Link to={product.id.toString()} className="product-img">
-                                            <img src={product.thumbnail} alt={product.title} />
-                                        </Link>
-                                        <p className={product.discountPercentage === 0 ? "none" : "discount"}>{product.discountPercentage}%
-                                            Off</p>
-                                        <div className="product-info">
-                                            <Link to={product.id.toString()}
-                                                  className="product-name">{product.title}
-                                            </Link>
-                                            <div className="product-prices">
-                                                <p className={product.discountPercentage === 0 ? "none" : "price"}>${product.price - (product.price * (product.discountPercentage) / 100)}</p>
-                                                <p className={product.salePrice === 0 ? "price" : "price product-price"}>${product.price}</p>
-                                            </div>
-                                        </div>
-                                        <div className="cart-action">
-                                            <button className="btn action-btn look-btn">
-                                                <FaRegEye />
-                                            </button>
-                                            <button className="btn cart-btn" onClick={() => addCart(product)}>
-                                                Add to Cart
-                                            </button>
-                                            <button className="btn action-btn wish-btn"
-                                                    onClick={() => addToWish(product)}>
-                                                <FaRegHeart />
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={index} product={product} addWish={addWish} addCart={addCart} />
                                 ))}
 
                             </div>
