@@ -4,7 +4,8 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({children}) => {
     const [products, setProducts] = useState([]);
-    const [category, setCategory] = useState([]);
+    const [categories, setCategory] = useState([]);
+    const [brands, setBrands] = useState([]);
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())
@@ -13,15 +14,19 @@ const ProductProvider = ({children}) => {
     }, []);
     if (products.length > 0) {
         products.forEach(product => {
-            if (!category.includes(product.category)) {
-                category.push(product.category)
-                return setCategory(category)
+            if (!categories.includes(product.category)) {
+                categories.push(product.category)
+                setCategory(categories)
+            }
+            if(!brands.includes(product.brand)) {
+                brands.push(product.brand);
+                setBrands(brands);
             }
         })
-        console.log(category)
+        console.log(products)
     }
     return (
-        <ProductContext.Provider value={{products, setProducts}}>
+        <ProductContext.Provider value={{products, setProducts, categories, brands}}>
             {children}
         </ProductContext.Provider>
     )

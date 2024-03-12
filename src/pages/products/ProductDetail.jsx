@@ -1,18 +1,18 @@
-import { useLoaderData, useParams, NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
-import { Helmet } from "react-helmet";
+import {useParams, NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Pagination, Navigation} from 'swiper/modules';
+import {Helmet} from "react-helmet";
 
 // Layouts
 import HomeServices from "../home/HomeServices";
 
 // Icons
-import { CiStar } from "react-icons/ci";
-import { FaRegStar, FaStar, FaShoppingBag, FaShoppingCart } from "react-icons/fa";
+import {CiStar} from "react-icons/ci";
+import {FaRegStar, FaStar, FaShoppingBag, FaShoppingCart} from "react-icons/fa";
 
 // Actions
-import { addToCart } from "../../features/cart";
+import {addToCart} from "../../features/cart";
 import {Counter} from "../../components/Counter.jsx";
 
 
@@ -21,16 +21,21 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import "./css/ProductDetail.css";
+import {ProductContext} from "../../context/ProductContext.jsx";
+import {useContext} from "react";
 
-const ProductDetail = ({ products }) => {
-    const { id } = useParams();
+const ProductDetail = () => {
+    const {products} = useContext(ProductContext);
+    const {id} = useParams();
     const dispatch = useDispatch();
     const addCart = (product) => {
         dispatch(addToCart(product));
     }
 
     const product = products.find(product => product.id === parseInt(id));
+
     return (
+        product &&
         <>
             <Helmet>
                 <title> eTrade | {product.title} </title>
@@ -57,7 +62,7 @@ const ProductDetail = ({ products }) => {
                                         return (
                                             <SwiperSlide key={i}>
                                                 <div className="product-img">
-                                                    <img src={img} alt={product.title} />
+                                                    <img src={img} alt={product.title}/>
                                                 </div>
                                             </SwiperSlide>
                                         )
@@ -80,19 +85,19 @@ const ProductDetail = ({ products }) => {
                                     <div className="review-block">
                                         <div className="ratings">
                                             <button className="btn btn-rating">
-                                                <FaStar />
+                                                <FaStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <FaStar />
+                                                <FaStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <FaStar />
+                                                <FaStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <FaStar />
+                                                <FaStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <FaRegStar />
+                                                <FaRegStar/>
                                             </button>
                                         </div>
                                         <div className="review-count">
@@ -126,13 +131,13 @@ const ProductDetail = ({ products }) => {
                                 </div>
                                 <div className="cart-section">
                                     <p className="subhead">Quantity: </p>
-                                    <Counter />
+                                    <Counter/>
                                 </div>
                                 <div className="buttons">
-                                    <button className="btn btn-sm cart-btn"><FaShoppingBag />Buy now</button>
+                                    <button className="btn btn-sm cart-btn"><FaShoppingBag/>Buy now</button>
                                     <button className="btn btn-sm btn-blue"
                                             onClick={() => addCart(product)}>
-                                        <FaShoppingCart />Add to cart
+                                        <FaShoppingCart/>Add to cart
                                     </button>
                                 </div>
                             </div>
@@ -166,26 +171,26 @@ const ProductDetail = ({ products }) => {
                                             <div className="user-img">
                                                 <img
                                                     src={"../assets/images/users/author-5.png"}
-                                                    alt="" />
+                                                    alt=""/>
                                             </div>
                                             <div className="comment-inner">
                                                 <div className="user-name">
                                                     <span>Eleanor Pena</span>
                                                     <div className="ratings">
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaRegStar />
+                                                            <FaRegStar/>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -201,26 +206,26 @@ const ProductDetail = ({ products }) => {
                                             <div className="user-img">
                                                 <img
                                                     src={"../assets/images/users/author-4.png"}
-                                                    alt="" />
+                                                    alt=""/>
                                             </div>
                                             <div className="comment-inner">
                                                 <div className="user-name">
                                                     <span>Eleanor Pena</span>
                                                     <div className="ratings">
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaRegStar />
+                                                            <FaRegStar/>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -236,26 +241,26 @@ const ProductDetail = ({ products }) => {
                                             <div className="user-img">
                                                 <img
                                                     src={"../assets/images/users/author-1.png"}
-                                                    alt="" />
+                                                    alt=""/>
                                             </div>
                                             <div className="comment-inner">
                                                 <div className="user-name">
                                                     <span>Eleanor Pena</span>
                                                     <div className="ratings">
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaStar />
+                                                            <FaStar/>
                                                         </button>
                                                         <button className="btn btn-rating">
-                                                            <FaRegStar />
+                                                            <FaRegStar/>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -278,19 +283,19 @@ const ProductDetail = ({ products }) => {
                                         <p>Your Rating<span className="req">*</span></p>
                                         <div className="ratings">
                                             <button className="btn btn-rating">
-                                                <CiStar />
+                                                <CiStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <CiStar />
+                                                <CiStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <CiStar />
+                                                <CiStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <CiStar />
+                                                <CiStar/>
                                             </button>
                                             <button className="btn btn-rating">
-                                                <CiStar />
+                                                <CiStar/>
                                             </button>
                                         </div>
                                     </div>
@@ -310,14 +315,14 @@ const ProductDetail = ({ products }) => {
                                                         Name
                                                         <span className="req">*</span>
                                                     </label>
-                                                    <input type="text" className="form-item" />
+                                                    <input type="text" className="form-item"/>
                                                 </div>
                                                 <div className="form-group">
                                                     <label className="absolute-item">
                                                         Email
                                                         <span className="req">*</span>
                                                     </label>
-                                                    <input type="text" className="form-item" />
+                                                    <input type="text" className="form-item"/>
                                                 </div>
                                             </div>
                                             <div className="btn btn-blue">Submit comment</div>
@@ -328,7 +333,7 @@ const ProductDetail = ({ products }) => {
                         </div>
                     </div>
                 </div>
-                <HomeServices />
+                <HomeServices/>
             </div>
         </>
     )
