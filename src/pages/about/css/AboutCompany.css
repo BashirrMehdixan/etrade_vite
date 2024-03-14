@@ -1,3 +1,13 @@
+.about-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
+.about-side .left-side {
+  width: 30%;
+}
 
-/*# sourceMappingURL=AboutCompany.css.map */
+.about-side .right-side {
+  width: 70%;
+}/*# sourceMappingURL=AboutCompany.css.map */

@@ -7,7 +7,7 @@ const Subscription = () => {
         <section className="subscription-section">
             <div className="container">
                 <div className="subscription-block">
-                    <div className="head-box">
+                    <div className="head-box blue-head">
                         <p className="best-deal">
                             <span>
                                 <FaEnvelopeOpen />

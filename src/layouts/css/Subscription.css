@@ -2,11 +2,11 @@
     padding-top: 20px;
 }
 
-.subscription-section .head-box .best-deal {
+.head-box.blue-head .best-deal {
     color: #3577f0;
 }
 
-.subscription-section .head-box .best-deal span {
+.head-box.blue-head .best-deal span {
     background-color: #3577f0;
 }
 
