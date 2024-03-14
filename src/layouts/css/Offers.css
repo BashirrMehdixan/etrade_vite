@@ -5,7 +5,7 @@
 }
 
 .swiper.campaign-swiper {
-    background-image: url(../../../../public/assets/images/backgrounds/campaign-bg3.png);
+    background-image: url(/assets/images/backgrounds/campaign-bg3.png);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px 0 18px;

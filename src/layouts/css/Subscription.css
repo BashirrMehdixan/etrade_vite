@@ -11,7 +11,7 @@
 }
 
 .subscription-block {
-    background-image: url(../../../../public/assets/images/backgrounds/bg-image-5.jpg);
+    background-image: url(/assets/images/backgrounds/bg-image-5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
