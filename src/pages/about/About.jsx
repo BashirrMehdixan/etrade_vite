@@ -1,5 +1,6 @@
 import Breadcrumb from "../../layouts/Breadcrumb.jsx";
 import {Helmet} from "react-helmet";
+import AboutCompany from "./AboutCompany.jsx";
 
 const About = () => {
     return (
@@ -8,6 +9,7 @@ const About = () => {
                 <title>eTrade | About us</title>
             </Helmet>
             <Breadcrumb/>
+            <AboutCompany />
         </>
     )
 }

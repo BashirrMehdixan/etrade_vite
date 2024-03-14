@@ -8,8 +8,7 @@ import Preferences from "./Preferences";
 
 const RootLayout = () => {
     const location = useLocation();
-    useEffect
-    (() => {
+    useEffect(() => {
         const url = location.pathname;
         const middleNav = document.querySelector('.middle-nav');
         const topHeader = document.querySelector(".top-header");

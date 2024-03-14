@@ -19,6 +19,10 @@
     background-position: center;
 }
 
+.signup-block .left-item .head-box {
+    margin: 50px 0 15px 15px;
+}
+
 .signup-block .right-item {
     width: 70%;
 }

@@ -50,6 +50,11 @@ const Register = () => {
             </Helmet>
             <div className="signup-block">
                 <div className="left-item bg-image">
+                    <div className="logo" className={'head-box'}>
+                        <Link to={"/"}>
+                            <img src={"./assets/images/logo/logo.png"} alt="Logo"/>
+                        </Link>
+                    </div>
                 </div>
                 <div className="right-item">
                     <div className="head-box flex-head">

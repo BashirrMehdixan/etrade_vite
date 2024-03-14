@@ -9,7 +9,7 @@ const ArrivalCard = ({product, addCart, addWish})=> {
                     <img src={product.thumbnail} alt={product.title}/>
                 </Link>
                 <p className={product.discountPercentage === 0 ? "none" : "discount"}>
-                    {product.discountPercentage}% Off
+                    {product.discountPercentage.toFixed(0)}% Off
                 </p>
                 <div className="product-info">
                     <Link to={`/products/${product.id}`}
@@ -17,12 +17,12 @@ const ArrivalCard = ({product, addCart, addWish})=> {
                     <div className="product-prices">
                         <p className={"price sale-price"}>
                             ${product.discountPercentage ?
-                            product.price - (product.price * (product.discountPercentage) / 100) :
-                            product.price
+                            (product.price - (product.price * (product.discountPercentage) / 100)).toFixed(2) :
+                            product.price.toFixed(2)
                         }
                         </p>
                         <p className={product.discountPercentage === 0 ? 'none' : 'price product-price'}>
-                            ${product.price - (product.price * (product.discountPercentage) / 100)}
+                            ${(product.price - (product.price * (product.discountPercentage) / 100)).toFixed(2)}
                         </p>
                     </div>
                 </div>

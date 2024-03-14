@@ -257,8 +257,7 @@
 
     .main-nav .navbar {
         position: absolute;
-        display: none;
-        width: 250px;
+        width: 0;
         height: 100%;
         flex-direction: column;
         align-items: flex-start;
@@ -267,11 +266,12 @@
         bottom: 0;
         right: 0;
         z-index: -2;
+        overflow: hidden;
         transition: .5s;
     }
 
     .main-nav .navbar.transform {
-        display: flex;
+        width: 250px;
         z-index: 2;
         transform: translate(20%, 0);
         transition: .5s;
