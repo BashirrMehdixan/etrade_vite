@@ -6,6 +6,7 @@ const ProductProvider = ({children}) => {
     const [products, setProducts] = useState([]);
     const [categories, setCategory] = useState([]);
     const [brands, setBrands] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())
@@ -23,10 +24,9 @@ const ProductProvider = ({children}) => {
                 setBrands(brands);
             }
         })
-        console.log(products)
     }
     return (
-        <ProductContext.Provider value={{products, setProducts, categories, brands}}>
+        <ProductContext.Provider value={{products, setProducts, categories, brands, filteredProducts, setFilteredProducts}}>
             {children}
         </ProductContext.Provider>
     )

@@ -1,23 +1,25 @@
 import {useContext, useState} from "react";
-import { Link, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Helmet } from "react-helmet";
+import {Link, useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {Helmet} from "react-helmet";
 
 // Layouts
 import Breadcrumb from "../../layouts/Breadcrumb";
+import {ProductContext} from "../../context/ProductContext.jsx";
 
 // Actions
-import { addToWishlist } from "../../features/wishlist";
-import { addToCart } from "../../features/cart";
+import {addToWishlist} from "../../features/wishlist";
+import {addToCart} from "../../features/cart";
 
 // CSS
 import "./css/Products.css";
+
+//Components
 import ProductCard from "../../components/ProductCard.jsx";
-import {ProductContext} from "../../context/ProductContext.jsx";
-import FilterCard from "../../components/FilterCard.jsx";
 
 const Products = () => {
     const {products, categories, brands} = useContext(ProductContext);
+    const [select, setSelect] = useState("");
     const { id } = useParams();
     const dispatch = useDispatch();
     const addWish = (product) => {
@@ -26,12 +28,16 @@ const Products = () => {
     const addCart = (product) => {
         dispatch(addToCart(product));
     }
+
+    const filter = (cat) => {
+        setSelect(cat)
+    }
     return (
         <>
             <Helmet>
                 <title>All Products | eTrade</title>
             </Helmet>
-            <Breadcrumb products={products} />
+            <Breadcrumb products={products}/>
             <section className="products-section">
                 <div className="container">
                     <div className="products-block">
@@ -42,9 +48,19 @@ const Products = () => {
                                     <span>Category</span>
                                 </div>
                                 <ul className={`category-list`}>
-                                    {categories.map((category, index) => (
-                                        <FilterCard key={index} data={category} type={'category'}/>
-                                    ))}
+                                    {categories.map((category, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    <label className="custom-radio">
+                                                        <input type="radio" name={'category'}
+                                                               onChange={() => filter(category)}/>
+                                                        <span className="checkmark"></span>
+                                                        <span className="cat-name">{category}</span>
+                                                    </label>
+                                                </li>
+                                            )
+                                        }
+                                    )}
                                 </ul>
                             </div>
                             <div className="product-category">
@@ -53,9 +69,18 @@ const Products = () => {
                                     <span>Brands</span>
                                 </div>
                                 <ul className={`category-list`}>
-                                    {brands.map((brand, index) => (
-                                        <FilterCard key={index} data={brand} type={'brand'}/>
-                                    ))}
+                                    {brands.map((brand, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    <label className="custom-radio">
+                                                        <input type="radio" name={'brand'} onChange={() => filter(brand)}/>
+                                                        <span className="checkmark"></span>
+                                                        <span className="cat-name">{brand}</span>
+                                                    </label>
+                                                </li>
+                                            )
+                                        }
+                                    )}
                                 </ul>
                             </div>
                             <button className="btn btn-blue btn-reset">All reset</button>
@@ -75,9 +100,10 @@ const Products = () => {
                                 </div>
                             </div>
                             <div className="all-products">
-                                {products.map((product, index) => (
-                                    <ProductCard key={index} product={product} addWish={addWish} addCart={addCart} />
-                                ))}
+                                {products.filter(product => select == "" ? true : select == product.brand || select == product.category).map((product, index) => (
+                                    <ProductCard key={index} product={product} addWish={addWish} addCart={addCart}/>
+                                ))
+                                }
 
                             </div>
                             <div className="btn-more">

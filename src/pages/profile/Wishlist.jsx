@@ -60,7 +60,7 @@ const Wishlist = () => {
                                         <td className="product-name">
                                             <Link to={`/products/${item.id}`}>{item.title}</Link>
                                         </td>
-                                        <td className="price">${item.price}</td>
+                                        <td className="price">${item.price.toFixed(2)}</td>
                                         <td className="stock-status">In stock</td>
                                         <td className="add-cart">
                                             <button className="btn btn-cart" onClick={() => addCart(item)}>

@@ -14,11 +14,15 @@ import 'swiper/css/grid';
 import 'swiper/css/navigation';
 import "./css/HomeProducts.css"
 
+// Context
+import { ProductContext } from "../../context/ProductContext.jsx";
+
+// Components
+import HomeProductCard from "../../components/HomeProductCard.jsx";
+
 // Actions
 import { addToCart } from "../../features/cart";
 import { addToWishlist } from "../../features/wishlist";
-import {ProductContext} from "../../context/ProductContext.jsx";
-import ProductCard from "../../components/ProductCard.jsx";
 
 const HomeProducts = () => {
     const {products} = useContext(ProductContext);
@@ -80,7 +84,7 @@ const HomeProducts = () => {
                         {products.map((product, index) => {
                             return (
                                 <SwiperSlide key={index}>
-                                    <ProductCard product={product} addCart={addCart} addWish={addWish} />
+                                    <HomeProductCard product={product} addCart={addCart} addWish={addWish} />
                                 </SwiperSlide>
                             )
                         })}

@@ -31,9 +31,9 @@ const PopularCard = ({product, addWish, addCart}) => {
                                 </li>
                             </ul>
                             <div className="review-item">
-                                                <span className="review-count">
-                                                    100+
-                                                </span>
+                                <span className="review-count">
+                                    100+
+                                </span>
                                 Review
                             </div>
                         </div>
@@ -42,10 +42,10 @@ const PopularCard = ({product, addWish, addCart}) => {
                         </Link>
                         <div className="prices">
                                             <span className={product.discountPercentage === 0 ? "none" : "price"}>
-                                                ${product.price - (product.price * (product.discountPercentage) / 100)}
+                                                ${(product.price - (product.price * (product.discountPercentage) / 100)).toFixed(2)}
                                             </span>
                             <span className={product.discountPercentage === 0 ? "price" : "price old-price"}>
-                                                ${product.price}
+                                                ${product.price.toFixed(2)}
                                             </span>
                         </div>
                     </div>
