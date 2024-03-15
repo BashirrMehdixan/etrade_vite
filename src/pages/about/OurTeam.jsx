@@ -7,9 +7,15 @@ import {UsersContext} from "../../context/UsersContext.jsx";
 // Components
 import TeamSlide from '../../components/TeamSlide';
 
-// CSS
-import "./css/OurTeam.css";
+// Icons
 import {RiTeamFill} from "react-icons/ri";
+import {IoIosArrowRoundBack, IoIosArrowRoundForward} from "react-icons/io";
+
+// CSS
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/navigation';
+import "./css/OurTeam.css";
 
 const OurTeam = () => {
     const {users} = useContext(UsersContext);
@@ -20,13 +26,19 @@ const OurTeam = () => {
                     <div className="head-box purple-head">
                         <h6 className="best-deal">
                                     <span>
-                                        <RiTeamFill />
+                                        <RiTeamFill/>
                                     </span>
                             Our Team
                         </h6>
                         <h5 className="uni-head head1">
                             Expart Management Team
                         </h5>
+                    </div>
+                    <div className="swiper-team-btn image-swiper-button-prev">
+                        <IoIosArrowRoundBack/>
+                    </div>
+                    <div className="swiper-team-btn image-swiper-button-next">
+                        <IoIosArrowRoundForward/>
                     </div>
                     <Swiper
                         slidesPerView={1}

@@ -13,7 +13,7 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/navigation';
-import "./css/HomeProducts.css"
+import "./css/HomeProducts.css";
 
 // Context
 import { ProductContext } from "../../context/ProductContext.jsx";
