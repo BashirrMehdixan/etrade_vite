@@ -39,6 +39,9 @@
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.04);
   border: 1px solid #fff;
   border-radius: 10px;
+  transform: translate(0, 80px);
+  z-index: 1;
+  background-color: #fff;
   transition: linear 0.5s;
 }
 .about-preferencess .about-block:hover {

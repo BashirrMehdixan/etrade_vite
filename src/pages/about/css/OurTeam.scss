@@ -1,8 +1,12 @@
 .our-team-section {
     padding: 80px 0;
+    position: relative;
+
+    .swiper-team-btn {
+        top: 20% !important;
+    }
 
     .member-block {
-        border: 1px solid #777777;
         padding: 10px;
         border-radius: 5px;
         overflow: hidden;
@@ -19,6 +23,8 @@
 
         .member-info {
             .member-position {
+                font-size: 15px;
+                color: #777777;
                 padding: 15px 0;
             }
         }
