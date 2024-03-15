@@ -1,6 +1,7 @@
 import {useContext} from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from "react-redux";
+// Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Navigation } from 'swiper/modules';
 

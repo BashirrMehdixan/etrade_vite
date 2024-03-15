@@ -1,8 +1,8 @@
-import {createContext, useEffect, useState} from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ProductContext = createContext();
 
-const ProductProvider = ({children}) => {
+const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [categories, setCategory] = useState([]);
     const [brands, setBrands] = useState([]);
@@ -19,14 +19,14 @@ const ProductProvider = ({children}) => {
                 categories.push(product.category)
                 setCategory(categories)
             }
-            if(!brands.includes(product.brand)) {
+            if (!brands.includes(product.brand)) {
                 brands.push(product.brand);
                 setBrands(brands);
             }
         })
     }
     return (
-        <ProductContext.Provider value={{products, setProducts, categories, brands, filteredProducts, setFilteredProducts}}>
+        <ProductContext.Provider value={{ products, setProducts, categories, brands, filteredProducts, setFilteredProducts }}>
             {children}
         </ProductContext.Provider>
     )
