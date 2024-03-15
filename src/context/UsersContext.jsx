@@ -11,7 +11,6 @@ const UsersProvider = ({ children }) => {
             .then(data => setUsers(data.users))
 
     }, []);
-    console.log(users)
     return (
         <UsersContext.Provider value={{ users }}>
             {children}

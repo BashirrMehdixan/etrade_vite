@@ -40,7 +40,7 @@ const HomeProducts = () => {
         <>
             <section className="home-products">
                 <div className="container relative">
-                    <div className="head-box products-head" data-aos="fade-down">
+                    <div className="head-box products-head purple-head" data-aos="fade-down">
                         <p className="best-deal">
                             <span>
                                 <FaShoppingBasket />

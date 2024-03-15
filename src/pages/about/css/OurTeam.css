@@ -1,0 +1,20 @@
+.our-team-section {
+  padding: 80px 0;
+}
+.our-team-section .member-block {
+  border: 1px solid #777777;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.our-team-section .member-block img {
+  transition: 0.5s;
+}
+.our-team-section .member-block:hover img {
+  scale: 1.1;
+}
+.our-team-section .member-block .member-info .member-position {
+  padding: 15px 0;
+}
+
+/*# sourceMappingURL=OurTeam.css.map */

@@ -8,6 +8,10 @@
     margin: 50px 0 15px 0;
 }
 
+.head-box.purple-head {
+    color: #8c71db;
+}
+
 .swiper.home-product-slide .swiper-wrapper {
     flex-direction: row;
     position: static;
