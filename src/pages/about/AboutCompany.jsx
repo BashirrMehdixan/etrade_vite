@@ -24,7 +24,7 @@ const AboutCompany = () => {
                                 </h5>
                             </div>
                             <div className="inner">
-                                <p class={'inner-content'}>
+                                <p className={'inner-content'}>
                                     Salesforce B2C Commerce can help you create unified, intelligent digital commerce
                                     experiences — both online and in the store.
                                 </p>

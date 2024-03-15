@@ -13,7 +13,7 @@
 }
 
 .signup-block .left-item.bg-image {
-    background-image: url("../../../../../public/assets/images/backgrounds/signup.jpg");
+    background-image: url(/assets/images/backgrounds/signup.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
