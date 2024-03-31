@@ -3,9 +3,9 @@ import { useContext } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 // Context
-import { UsersContext } from "../../context/Users/UsersContext.jsx";
+import { UsersContext } from "/src/context/Users/UsersContext.jsx";
 // Components
-import TeamCard from '../../components/TeamCard';
+import TeamCard from '/src/components/TeamCard';
 
 // Icons
 import { RiTeamFill } from "react-icons/ri";

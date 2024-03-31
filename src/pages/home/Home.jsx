@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 // Context
-import { ProductContext } from "../../context/Products/ProductContext.jsx";
+import { ProductContext } from "/src/context/Products/ProductContext.jsx";
 import HomeSlide from "./HomeSlide";
 import HomeCategories from "./HomeCategories";
 import HomeProducts from "./HomeProducts";

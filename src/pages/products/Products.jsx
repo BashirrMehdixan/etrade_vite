@@ -4,15 +4,15 @@ import { useDispatch } from "react-redux";
 import { Helmet } from "react-helmet";
 
 // Layouts
-import Breadcrumb from "../../layouts/Breadcrumb";
-import { ProductContext } from "../../context/Products/ProductContext.jsx";
+import Breadcrumb from "/src/layouts/Breadcrumb";
+import { ProductContext } from "/src/context/Products/ProductContext.jsx";
 
 // Actions
-import { addToWishlist } from "../../features/wishlist";
-import { addToCart } from "../../features/cart";
+import { addToWishlist } from "/src/features/wishlist";
+import { addToCart } from "/src/features/cart";
 
 //Components
-import { ProductCard } from "../../components/ProductCards.jsx";
+import { ProductCard } from "/src/components/ProductCards.jsx";
 
 // CSS
 import "./css/Products.css";

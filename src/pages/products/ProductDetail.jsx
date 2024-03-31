@@ -6,16 +6,16 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { Helmet } from "react-helmet";
 
 // Layouts
-import HomeServices from "../../pages/home/HomeServices";
-import { ProductContext } from "../../context/Products/ProductContext.jsx";
+import HomeServices from "/src/pages/home/HomeServices";
+import { ProductContext } from "/src/context/Products/ProductContext.jsx";
 
 // Icons
 import { CiStar } from "react-icons/ci";
 import { FaRegStar, FaStar, FaShoppingBag, FaShoppingCart } from "react-icons/fa";
 
 // Actions
-import { addToCart } from "../../features/cart";
-import { Counter } from "../../components/Counter.jsx";
+import { addToCart } from "/src/features/cart";
+import { Counter } from "/src/components/Counter.jsx";
 
 
 // CSS

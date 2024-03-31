@@ -15,14 +15,14 @@ import 'swiper/css/grid';
 import 'swiper/css/navigation';
 
 // Context
-import { ProductContext } from "../../context/Products/ProductContext.jsx";
+import { ProductContext } from "/src/context/Products/ProductContext.jsx";
 
 // Components
-import { HomeProductCard } from "../../components/ProductCards.jsx";
+import { HomeProductCard } from "/src/components/ProductCards.jsx";
 
 // Actions
-import { addToCart } from "../../features/cart";
-import { addToWishlist } from "../../features/wishlist";
+import { addToCart } from "/src/features/cart";
+import { addToWishlist } from "/src/features/wishlist";
 
 import "./css/HomeProducts.css";
 

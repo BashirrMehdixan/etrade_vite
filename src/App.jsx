@@ -5,7 +5,7 @@ import { AuthContext } from './context/Auth/AuthContext';
 import { ProductContext } from "./context/Products/ProductContext.jsx";
 
 import { getDoc, doc } from "firebase/firestore";
-import { db } from './store/firebase';
+import { db } from '/src/store/firebase';
 import AOS from 'aos';
 
 // CSS

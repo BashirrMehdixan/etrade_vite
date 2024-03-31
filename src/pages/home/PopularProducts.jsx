@@ -2,16 +2,16 @@ import { useContext } from "react";
 import { useDispatch } from "react-redux";
 
 // Components
-import { PopularCard } from "../../components/ProductCards.jsx";
+import { PopularCard } from "/src/components/ProductCards.jsx";
 // Context
-import { ProductContext } from "../../context/Products/ProductContext.jsx";
+import { ProductContext } from "/src/context/Products/ProductContext.jsx";
 
 // Icons
 import { FaStar } from "react-icons/fa";
 
 // Actions
-import { addToCart } from "../../features/cart";
-import { addToWishlist } from "../../features/wishlist";
+import { addToCart } from "/src/features/cart";
+import { addToWishlist } from "/src/features/wishlist";
 
 // CSS
 import "./css/PopularProducts.css";

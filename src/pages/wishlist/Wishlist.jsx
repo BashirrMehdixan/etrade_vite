@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Helmet } from "react-helmet";
 
 // Actions
-import { removeFromWishlist } from "../../features/wishlist";
-import { addToCart } from "../../features/cart";
+import { removeFromWishlist } from "/src/features/wishlist";
+import { addToCart } from "/src/features/cart";
 
 // Icons
 import { IoCloseOutline } from "react-icons/io5";

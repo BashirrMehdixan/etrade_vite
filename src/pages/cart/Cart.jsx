@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Helmet } from "react-helmet";
 
-import { removeFromCart, increment, decrement } from "../../features/cart";
+import { removeFromCart, increment, decrement } from "/src/features/cart";
 import { IoCloseOutline } from "react-icons/io5";
 
 const Cart = () => {

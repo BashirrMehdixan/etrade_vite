@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 // Context
-import { PostsContext } from "../../context/Posts/PostsContext";
-import { UsersContext } from "../../context/Users/UsersContext";
+import { PostsContext } from "/src/context/Posts/PostsContext";
+import { UsersContext } from "/src/context/Users/UsersContext";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -10,7 +10,7 @@ import { Navigation } from "swiper/modules";
 import { FaFacebookF, FaTwitter, FaInstagram, FaDiscord, FaLinkedinIn, FaBell } from "react-icons/fa";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 // Components
-import { LatestBlogCard, RelatedPostCard } from "../../components/BlogCards";
+import { LatestBlogCard, RelatedPostCard } from "/src/components/BlogCards";
 
 const BlogDetail = () => {
     const { id } = useParams();

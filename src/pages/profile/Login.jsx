@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { login } from "../../store/firebase";
-import { AuthContext } from "../../context/Auth/AuthContext";
+import { login } from "/src/store/firebase";
+import { AuthContext } from "/src/context/Auth/AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();

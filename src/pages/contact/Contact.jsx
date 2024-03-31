@@ -1,5 +1,5 @@
-import {Helmet} from "react-helmet";
-import Breadcrumb from "../../layouts/Breadcrumb";
+import { Helmet } from "react-helmet";
+import Breadcrumb from "/src/layouts/Breadcrumb";
 
 const Contact = () => {
     return (
@@ -7,7 +7,7 @@ const Contact = () => {
             <Helmet>
                 <title>eTrade | Contact With Us</title>
             </Helmet>
-            <Breadcrumb/>
+            <Breadcrumb />
             <div className="container">
                 <div className="contact-box">
                     <div className="left-side">
@@ -24,21 +24,21 @@ const Contact = () => {
                                         <span>Name</span>
                                         <span>*</span>
                                     </label>
-                                    <input type="text" className={'form-control'} name={'firstname'}/>
+                                    <input type="text" className={'form-control'} name={'firstname'} />
                                 </div>
                                 <div className="form-group">
                                     <label className={'absolute-item'}>
                                         <span>Phone</span>
                                         <span>*</span>
                                     </label>
-                                    <input type="text" className={'form-control'} name={'phone'}/>
+                                    <input type="text" className={'form-control'} name={'phone'} />
                                 </div>
                                 <div className="form-group">
                                     <label className={'absolute-item'}>
                                         <span>E-mail</span>
                                         <span>*</span>
                                     </label>
-                                    <input type="email" className={'form-control'} name={'email'}/>
+                                    <input type="email" className={'form-control'} name={'email'} />
                                 </div>
                                 <div className="form-group form-item">
                                     <label className="absolute-item">

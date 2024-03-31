@@ -5,14 +5,14 @@ import { Navigation } from 'swiper/modules';
 
 
 // Actions
-import { addToCart } from "../../features/cart";
-import { addToWishlist } from "../../features/wishlist";
+import { addToCart } from "/src/features/cart";
+import { addToWishlist } from "/src/features/wishlist";
 
 // Context
-import { ProductContext } from "../../context/Products/ProductContext";
+import { ProductContext } from "/src/context/Products/ProductContext";
 
 // Components
-import { ArrivalCard } from "../../components/ProductCards.jsx";
+import { ArrivalCard } from "/src/components/ProductCards.jsx";
 
 // Icons
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
@@ -39,7 +39,7 @@ const NewArrivals = () => {
                         <span>
                             <FaShoppingBasket />
                         </span>
-                        This week's
+                        This week&apos;s
                     </p>
                     <p className="uni-head head1">
                         New Arrivals

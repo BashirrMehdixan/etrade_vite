@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { db, signup } from "../../store/firebase";
-import { AuthContext } from "../../context/Auth/AuthContext";
+import { db, signup } from "/src/store/firebase";
+import { AuthContext } from "/src/context/Auth/AuthContext";
 
 const Register = () => {
     const navigate = useNavigate();

@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import counterReducer from '../features/counter';
-import wishlist from '../features/wishlist';
-import cart from '../features/cart';
+import counterReducer from '/src/features/counter';
+import wishlist from '/src/features/wishlist';
+import cart from '/src/features/cart';
 
 const wishlistPersistConfig = {
     key: 'wishlist',
