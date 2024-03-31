@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { db, storage, passwordUpdate } from "../../store/firebase.jsx";
+import { db, storage, passwordUpdate } from "../../store/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
-import { AuthContext } from "../../context/AuthContext";
 
 const AccountDetail = ({ accountData }) => {
     const { currentUser } = useContext(AuthContext);

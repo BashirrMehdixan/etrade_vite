@@ -1,16 +1,12 @@
-import {useContext} from "react";
-import {Link, useNavigate} from "react-router-dom";
-import {useState} from "react";
-import {login} from "../../store/firebase.jsx";
-import {Helmet} from "react-helmet";
-
-// CSS
-import "./css/Signup.css";
-import {AuthContext} from "../../context/AuthContext";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { login } from "../../store/firebase";
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();
-    const {dispatch} = useContext(AuthContext);
+    const { dispatch } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -18,7 +14,7 @@ const Login = () => {
         e.preventDefault();
         const user = await login(email, password);
         if (user) {
-            dispatch({type: "LOGIN", payload: user});
+            dispatch({ type: "LOGIN", payload: user });
             navigate("/profile", {
                 replace: true
             })
@@ -31,13 +27,7 @@ const Login = () => {
                 <title>eTrade | Sign in</title>
             </Helmet>
             <div className="signup-block">
-                <div className="left-item bg-image">
-                    <div className="logo" className={'head-box'}>
-                        <Link to={"/"}>
-                            <img src={"./assets/images/logo/logo.png"} alt="Logo"/>
-                        </Link>
-                    </div>
-                </div>
+                <div className="left-item bg-image"></div>
                 <div className="right-item">
                     <div className="head-box flex-head">
                         <span>Not a member?</span>

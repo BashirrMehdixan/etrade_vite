@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-// Icons
 
+// Icons
 import { CiHeadphones } from "react-icons/ci";
 
 // CSS

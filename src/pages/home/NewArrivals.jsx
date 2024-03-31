@@ -1,27 +1,29 @@
-import {useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation} from 'swiper/modules';
+import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+
+
+// Actions
+import { addToCart } from "../../features/cart";
+import { addToWishlist } from "../../features/wishlist";
+
+// Context
+import { ProductContext } from "../../context/Products/ProductContext";
+
+// Components
+import { ArrivalCard } from "../../components/ProductCards.jsx";
 
 // Icons
-import {IoIosArrowRoundForward, IoIosArrowRoundBack} from "react-icons/io";
-import {FaShoppingBasket} from "react-icons/fa";
+import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import { FaShoppingBasket } from "react-icons/fa";
 
 // Css
 import 'swiper/css';
 import 'swiper/css/navigation';
-import "./css/NewArrivals.css";
-
-// Actions
-import {addToCart} from "../../features/cart.jsx";
-import {addToWishlist} from "../../features/wishlist";
-import {useContext} from "react";
-import {ProductContext} from "../../context/ProductContext.jsx";
-import ArrivalCard from "../../components/ArrivalCard.jsx";
 
 const NewArrivals = () => {
-    const {products} = useContext(ProductContext);
-    const {id} = useParams();
+    const { products } = useContext(ProductContext);
     const dispatch = useDispatch();
     const addCart = (product) => {
         dispatch(addToCart(product));
@@ -33,9 +35,9 @@ const NewArrivals = () => {
         <section className="home-arrival">
             <div className="container relative">
                 <div className="head-box products-head" data-aos="fade-down">
-                    <p className="best-deal">
+                    <p className="best-deal purple-head">
                         <span>
-                            <FaShoppingBasket/>
+                            <FaShoppingBasket />
                         </span>
                         This week's
                     </p>
@@ -44,10 +46,10 @@ const NewArrivals = () => {
                     </p>
                 </div>
                 <div className="swiper-product-btn image-swiper-button-next">
-                    <IoIosArrowRoundForward/>
+                    <IoIosArrowRoundForward />
                 </div>
                 <div className="swiper-product-btn image-swiper-button-prev">
-                    <IoIosArrowRoundBack/>
+                    <IoIosArrowRoundBack />
                 </div>
                 <Swiper
                     slidesPerView={1}
@@ -77,7 +79,7 @@ const NewArrivals = () => {
                     {products.map((product, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                <ArrivalCard product={product} addCart={addCart} addWish={addWish}/>
+                                <ArrivalCard product={product} addCart={addCart} addWish={addWish} />
                             </SwiperSlide>
                         )
                     })}

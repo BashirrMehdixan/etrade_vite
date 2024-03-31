@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { Helmet } from "react-helmet";
+// Context
+import { ProductContext } from "../../context/Products/ProductContext.jsx";
 import HomeSlide from "./HomeSlide";
 import HomeCategories from "./HomeCategories";
 import HomeProducts from "./HomeProducts";
@@ -6,12 +10,9 @@ import Feedbacks from "./Feedbacks";
 import NewArrivals from "./NewArrivals";
 import PopularProducts from "./PopularProducts";
 import HomeServices from "./HomeServices";
-import { Helmet } from "react-helmet";
-import {useContext} from "react";
-import {ProductContext} from "../../context/ProductContext.jsx";
 
 const Home = () => {
-    const {products} = useContext(ProductContext)
+    const { products } = useContext(ProductContext)
     return (
         products.length &&
         <>

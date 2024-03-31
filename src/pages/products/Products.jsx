@@ -1,27 +1,27 @@
-import {useContext, useState} from "react";
-import {Link, useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {Helmet} from "react-helmet";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
 
 // Layouts
 import Breadcrumb from "../../layouts/Breadcrumb";
-import {ProductContext} from "../../context/ProductContext.jsx";
+import { ProductContext } from "../../context/Products/ProductContext.jsx";
 
 // Actions
-import {addToWishlist} from "../../features/wishlist";
-import {addToCart} from "../../features/cart";
+import { addToWishlist } from "../../features/wishlist";
+import { addToCart } from "../../features/cart";
+
+//Components
+import { ProductCard } from "../../components/ProductCards.jsx";
 
 // CSS
 import "./css/Products.css";
 
-//Components
-import ProductCard from "../../components/ProductCard.jsx";
 
 const Products = () => {
-    const {products, categories, brands} = useContext(ProductContext);
+    const { products, categories, brands } = useContext(ProductContext);
     const [select, setSelect] = useState("");
     const [brand, setBrand] = useState("");
-    const {id} = useParams();
     const dispatch = useDispatch();
     const addWish = (product) => {
         dispatch(addToWishlist(product))
@@ -45,7 +45,7 @@ const Products = () => {
             <Helmet>
                 <title>All Products | eTrade</title>
             </Helmet>
-            <Breadcrumb products={products}/>
+            <Breadcrumb products={products} />
             <section className="products-section">
                 <div className="container">
                     <div className="products-block">
@@ -57,17 +57,17 @@ const Products = () => {
                                 </div>
                                 <ul className={`category-list`}>
                                     {categories.map((category, index) => {
-                                            return (
-                                                <li key={index}>
-                                                    <label className="custom-radio">
-                                                        <input type="radio" name={'category'}
-                                                               onChange={() => filterCat(category)}/>
-                                                        <span className="checkmark"></span>
-                                                        <span className="cat-name">{category}</span>
-                                                    </label>
-                                                </li>
-                                            )
-                                        }
+                                        return (
+                                            <li key={index}>
+                                                <label className="custom-radio">
+                                                    <input type="radio" name={'category'}
+                                                        onChange={() => filterCat(category)} />
+                                                    <span className="checkmark"></span>
+                                                    <span className="cat-name">{category}</span>
+                                                </label>
+                                            </li>
+                                        )
+                                    }
                                     )}
                                 </ul>
                             </div>
@@ -77,17 +77,17 @@ const Products = () => {
                                 </div>
                                 <ul className={`category-list`}>
                                     {brands.map((brand, index) => {
-                                            return (
-                                                <li key={index}>
-                                                    <label className="custom-radio">
-                                                        <input type="radio" name={'brand'}
-                                                               onChange={() => filterBrand(brand)}/>
-                                                        <span className="checkmark"></span>
-                                                        <span className="cat-name">{brand}</span>
-                                                    </label>
-                                                </li>
-                                            )
-                                        }
+                                        return (
+                                            <li key={index}>
+                                                <label className="custom-radio">
+                                                    <input type="radio" name={'brand'}
+                                                        onChange={() => filterBrand(brand)} />
+                                                    <span className="checkmark"></span>
+                                                    <span className="cat-name">{brand}</span>
+                                                </label>
+                                            </li>
+                                        )
+                                    }
                                     )}
                                 </ul>
                             </div>
@@ -109,7 +109,7 @@ const Products = () => {
                             </div>
                             <div className="all-products">
                                 {products.filter(product => brand === "" ? true : brand === product.brand).filter(product => select === "" ? true : select === product.category).map((product, index) => (
-                                    <ProductCard key={index} product={product} addWish={addWish} addCart={addCart}/>
+                                    <ProductCard key={index} product={product} addWish={addWish} addCart={addCart} />
                                 ))
                                 }
 

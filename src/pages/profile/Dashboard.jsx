@@ -1,11 +1,8 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/Auth/AuthContext";
 import { Helmet } from "react-helmet";
-import { logout } from "../../store/firebase.jsx";
-
-// CSS
-import "./css/Dashboard.css";
+import { logout } from "../../store/firebase";
 
 const Dashboard = () => {
     const navigate = useNavigate();

@@ -1,33 +1,32 @@
-import {useContext} from "react";
+import { useContext } from "react";
 // Swiper
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {Grid, Navigation} from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 // Context
-import {UsersContext} from "../../context/UsersContext.jsx";
+import { UsersContext } from "../../context/Users/UsersContext.jsx";
 // Components
-import TeamSlide from '../../components/TeamSlide';
+import TeamCard from '../../components/TeamCard';
 
 // Icons
-import {RiTeamFill} from "react-icons/ri";
-import {IoIosArrowRoundBack, IoIosArrowRoundForward} from "react-icons/io";
+import { RiTeamFill } from "react-icons/ri";
+import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
 // CSS
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/navigation';
-import "./css/OurTeam.css";
 
 const OurTeam = () => {
-    const {users} = useContext(UsersContext);
+    const { users } = useContext(UsersContext);
     return (
         <>
             <section className="our-team-section bg-gray">
                 <div className="container">
                     <div className="head-box purple-head">
                         <h6 className="best-deal">
-                                    <span>
-                                        <RiTeamFill/>
-                                    </span>
+                            <span>
+                                <RiTeamFill />
+                            </span>
                             Our Team
                         </h6>
                         <h5 className="uni-head head1">
@@ -35,10 +34,10 @@ const OurTeam = () => {
                         </h5>
                     </div>
                     <div className="swiper-team-btn image-swiper-button-prev">
-                        <IoIosArrowRoundBack/>
+                        <IoIosArrowRoundBack />
                     </div>
                     <div className="swiper-team-btn image-swiper-button-next">
-                        <IoIosArrowRoundForward/>
+                        <IoIosArrowRoundForward />
                     </div>
                     <Swiper
                         slidesPerView={1}
@@ -68,7 +67,7 @@ const OurTeam = () => {
                         {users.length && users.map((user, index) => {
                             return (
                                 <SwiperSlide key={index}>
-                                    <TeamSlide {...user} />
+                                    <TeamCard {...user} />
                                 </SwiperSlide>
 
                             )
