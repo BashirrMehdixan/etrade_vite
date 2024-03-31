@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import { logout, accountVerify } from "../store/firebase.jsx";
+import { AuthContext } from "../context/Auth/AuthContext";
+import { logout, accountVerify } from "../store/firebase";
 
 // Icons
 import { MdDashboard, MdOutlineShoppingBasket } from "react-icons/md";

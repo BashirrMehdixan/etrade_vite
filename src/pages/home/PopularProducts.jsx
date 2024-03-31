@@ -1,23 +1,24 @@
-import {useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import { useContext } from "react";
+import { useDispatch } from "react-redux";
+
+// Components
+import { PopularCard } from "../../components/ProductCards.jsx";
+// Context
+import { ProductContext } from "../../context/Products/ProductContext.jsx";
 
 // Icons
-import {FaStar} from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 // Actions
-import {addToCart} from "../../features/cart";
-import {addToWishlist} from "../../features/wishlist";
+import { addToCart } from "../../features/cart";
+import { addToWishlist } from "../../features/wishlist";
 
 // CSS
 import "./css/PopularProducts.css";
-import PopularCard from "../../components/PopularCard.jsx";
-import {useContext} from "react";
-import {ProductContext} from "../../context/ProductContext.jsx";
 
 const PopularProducts = () => {
-    const {products} = useContext(ProductContext);
+    const { products } = useContext(ProductContext);
     const dispatch = useDispatch();
-    const {id} = useParams();
     const addCart = (product) => {
         dispatch(addToCart(product));
     }
@@ -30,7 +31,7 @@ const PopularProducts = () => {
                 <div className="head-box products-head centered-head" data-aos="fade-down">
                     <p className="best-deal">
                         <span>
-                            <FaStar/>
+                            <FaStar />
                         </span>
                         most sold
                     </p>
@@ -41,8 +42,7 @@ const PopularProducts = () => {
                 <div className="popular-products-block">
                     {products.map((product, index) => {
                         return (
-                            // eslint-disable-next-line react/jsx-key
-                            <PopularCard key={index} product={product} addWish={addWish} addCart={addCart}/>
+                            <PopularCard key={index} product={product} addWish={addWish} addCart={addCart} />
                         )
                     })}
                 </div>

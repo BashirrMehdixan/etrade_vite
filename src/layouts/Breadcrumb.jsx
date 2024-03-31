@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
-import { useEffect, useState } from "react";
 import "./css/Breadcrumb.css";
 
 const Breadcrumb = () => {

@@ -90,11 +90,11 @@
     background-color: #eee;
 }
 
-.custom-radio:hover input ~ .checkmark {
+.custom-radio:hover input~.checkmark {
     background-color: #ccc;
 }
 
-.custom-radio input:checked ~ .checkmark {
+.custom-radio input:checked~.checkmark {
     background-color: #3577f0;
 }
 
@@ -104,7 +104,7 @@
     display: none;
 }
 
-.custom-radio input:checked ~ .checkmark:after {
+.custom-radio input:checked~.checkmark:after {
     display: block;
 }
 

@@ -1,6 +1,4 @@
-import {FaShoppingBasket} from "react-icons/fa"
-
-import "./css/AboutCompany.css"
+import { FaShoppingBasket } from "react-icons/fa"
 
 const AboutCompany = () => {
     return (
@@ -9,13 +7,15 @@ const AboutCompany = () => {
                 <div className="container">
                     <div className="about-box">
                         <div className="left-side">
-                            <img src={'assets/images/about/about-01.png'} alt=""/>
+                            <div className="features-img">
+                                <img src={'assets/images/about/about-01.png'} alt="" />
+                            </div>
                         </div>
                         <div className="right-side">
                             <div className="head-box blue-head">
                                 <h6 className="best-deal">
                                     <span>
-                                        <FaShoppingBasket/>
+                                        <FaShoppingBasket />
                                     </span>
                                     About store
                                 </h6>
@@ -45,7 +45,7 @@ const AboutCompany = () => {
                     <div className="about-preferencess">
                         <div className="about-block">
                             <div className="block-img">
-                                <img src={'./assets/images/about/shape-01.png'} alt="About"/>
+                                <img src={'./assets/images/about/shape-01.png'} alt="About" />
                             </div>
                             <div className="block-content">
                                 <h6 className={'block-head'}>
@@ -58,7 +58,7 @@ const AboutCompany = () => {
                         </div>
                         <div className="about-block">
                             <div className="block-img">
-                                <img src={'./assets/images/about/shape-02.png'} alt="About"/>
+                                <img src={'./assets/images/about/shape-02.png'} alt="About" />
                             </div>
                             <div className="block-content">
                                 <h6 className={'block-head'}>
@@ -71,7 +71,7 @@ const AboutCompany = () => {
                         </div>
                         <div className="about-block">
                             <div className="block-img">
-                                <img src={'./assets/images/about/shape-03.png'} alt="About"/>
+                                <img src={'./assets/images/about/shape-03.png'} alt="About" />
                             </div>
                             <div className="block-content">
                                 <h6 className={'block-head'}>

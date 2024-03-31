@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { signup, db } from "../../store/firebase.jsx";
-import { AuthContext } from "../../context/AuthContext";
-
-// CSS
-import "./css/Signup.css";
+import { db, signup } from "../../store/firebase";
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -50,11 +47,6 @@ const Register = () => {
             </Helmet>
             <div className="signup-block">
                 <div className="left-item bg-image">
-                    <div className="logo" className={'head-box'}>
-                        <Link to={"/"}>
-                            <img src={"./assets/images/logo/logo.png"} alt="Logo"/>
-                        </Link>
-                    </div>
                 </div>
                 <div className="right-item">
                     <div className="head-box flex-head">

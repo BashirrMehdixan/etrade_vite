@@ -1,5 +1,5 @@
-import {useContext} from "react";
-import { Link, useParams } from 'react-router-dom';
+import { useContext } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,21 +13,21 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/navigation';
-import "./css/HomeProducts.css";
 
 // Context
-import { ProductContext } from "../../context/ProductContext.jsx";
+import { ProductContext } from "../../context/Products/ProductContext.jsx";
 
 // Components
-import HomeProductCard from "../../components/HomeProductCard.jsx";
+import { HomeProductCard } from "../../components/ProductCards.jsx";
 
 // Actions
 import { addToCart } from "../../features/cart";
 import { addToWishlist } from "../../features/wishlist";
 
+import "./css/HomeProducts.css";
+
 const HomeProducts = () => {
-    const {products} = useContext(ProductContext);
-    const { id } = useParams();
+    const { products } = useContext(ProductContext);
     const dispatch = useDispatch();
     const addCart = (product) => {
         dispatch(addToCart(product));
@@ -41,7 +41,7 @@ const HomeProducts = () => {
             <section className="home-products">
                 <div className="container relative">
                     <div className="head-box products-head purple-head" data-aos="fade-down">
-                        <p className="best-deal">
+                        <p className="best-deal purple-head">
                             <span>
                                 <FaShoppingBasket />
                             </span>

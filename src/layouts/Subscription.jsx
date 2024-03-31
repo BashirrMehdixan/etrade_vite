@@ -1,13 +1,11 @@
 import { FaEnvelopeOpen, FaEnvelope } from "react-icons/fa";
 
-import "./css/Subscription.css";
-
 const Subscription = () => {
     return (
         <section className="subscription-section">
             <div className="container">
                 <div className="subscription-block">
-                    <div className="head-box blue-head">
+                    <div className="head-box">
                         <p className="best-deal">
                             <span>
                                 <FaEnvelopeOpen />

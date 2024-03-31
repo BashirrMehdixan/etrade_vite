@@ -19,7 +19,7 @@ const cart = createSlice({
                     existingItem.total += existingItemSalePrice;
                 } else {
                     existingItem.total += existingItem.price;
-                };
+                }
             } else {
                 const newItem = {
                     ...action.payload,
