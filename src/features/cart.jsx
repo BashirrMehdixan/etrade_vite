@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
 const initialState = {
@@ -20,6 +20,7 @@ const cart = createSlice({
                 } else {
                     existingItem.total += existingItem.price;
                 }
+                ;
             } else {
                 const newItem = {
                     ...action.payload,
@@ -30,7 +31,7 @@ const cart = createSlice({
             }
             state.count += 1;
             state.total += action.payload.salePrice;
-            toast.success(`${existingItem.title} added to cart!`);
+            toast.success(`${action.payload.title} added to cart!`);
         },
         removeFromCart(state, action) {
             const itemIdToRemove = action.payload;
@@ -47,7 +48,7 @@ const cart = createSlice({
             }
         },
         increment: (state, action) => {
-            const { id } = action.payload;
+            const {id} = action.payload;
             const existingItem = state.items.find((item) => item.id === id);
             const existingItemSalePrice = existingItem.price - (existingItem.price * (existingItem.discountPercentage) / 100);
             if (existingItem) {
@@ -61,7 +62,7 @@ const cart = createSlice({
             }
         },
         decrement: (state, action) => {
-            const { id } = action.payload;
+            const {id} = action.payload;
             const existingItem = state.items.find((item) => item.id === id);
             const existingItemSalePrice = existingItem.price - (existingItem.price * (existingItem.discountPercentage) / 100);
             if (existingItem && existingItem.quantity > 1) {
@@ -77,6 +78,6 @@ const cart = createSlice({
     }
 })
 
-export const { addToCart, removeFromCart, increment, decrement } = cart.actions;
+export const {addToCart, removeFromCart, increment, decrement} = cart.actions;
 
 export default cart.reducer;
