@@ -27,7 +27,11 @@ const Login = () => {
                 <title>eTrade | Sign in</title>
             </Helmet>
             <div className="signup-block">
-                <div className="left-item bg-image"></div>
+                <div className="left-item bg-image">
+                    <Link to={'/'}>
+                        <img src={"./assets/images/logo/logo.png"} alt=""/>
+                    </Link>
+                </div>
                 <div className="right-item">
                     <div className="head-box flex-head">
                         <span>Not a member?</span>

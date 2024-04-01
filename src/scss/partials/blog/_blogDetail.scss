@@ -161,6 +161,15 @@
         .blog-detail-container {
             .left-side, .middle-side, .right-side {
                 width: 100%;
+                text-align: left;
+
+                .social-link {
+                    display: flex;
+
+                    li:not(:first-child) {
+                        margin: 0 10px;
+                    }
+                }
             }
         }
     }

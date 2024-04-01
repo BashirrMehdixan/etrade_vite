@@ -31,6 +31,7 @@
 
     .right-item {
         border: 1px solid #f3f3f3;
+        margin-bottom: 25px;
         padding: 0 15px;
         border-radius: 10px;
 
@@ -149,18 +150,32 @@
         color: #777777;
 
         span {
-            flex: 1;
+            &:not(.product-price) {
+                flex: 1;
 
-            &:first-child {
-                position: relative;
+                &:first-child {
+                    position: relative;
 
-                &::after {
-                    position: absolute;
-                    content: "";
-                    width: 1px;
-                    height: 100%;
-                    background-color: #777777;
-                    right: 14px;
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 1px;
+                        height: 100%;
+                        background-color: #777777;
+                        right: 14px;
+                    }
+                }
+            }
+
+            &.product-price {
+                font-weight: 500;
+                color: #212527;
+                font-size: 15px;
+                margin: 0 10px;
+
+                &.old-price {
+                    color: #777777;
+                    text-decoration: line-through;
                 }
             }
         }
@@ -170,6 +185,7 @@
 @media only screen and (max-width: 991px) {
     .right-side {
         padding: 0;
+
         .right-item {
             display: none;
         }

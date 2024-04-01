@@ -31,7 +31,7 @@ const Addresses = () => {
                 </div>
                 <div className="address-block">
                     <div className="address-title">
-                        <p className="title">Billiing Address</p>
+                        <p className="title">Billing Address</p>
                         <Link to={""}>
                             <FaRegEdit />
                         </Link>

@@ -9,12 +9,12 @@ const AboutFeatures = () => {
                         <div className="features-block">
                             <div className="left-side">
                                 <div className="features-img">
-                                    <img src="./assets/images/about/about-02.png" alt="" />
+                                    <img src={"./assets/images/about/about-02.png"} alt="" />
                                 </div>
                             </div>
                             <div className="right-side">
                                 <div className="features-content">
-                                    <h5 className="mid-title">Feaures #01</h5>
+                                    <h5 className="mid-title">Features #01</h5>
                                     <h3 className="main-title">
                                         Solutions that work together
                                     </h3>
@@ -28,12 +28,12 @@ const AboutFeatures = () => {
                         <div className="features-block">
                             <div className="left-side">
                                 <div className="features-img">
-                                    <img src="./assets/images/about/about-03.png" alt="" />
+                                    <img src={"./assets/images/about/about-03.png"} alt="" />
                                 </div>
                             </div>
                             <div className="right-side">
                                 <div className="features-content">
-                                    <h5 className="mid-title">Feaures #02</h5>
+                                    <h5 className="mid-title">Features #02</h5>
                                     <h3 className="main-title">
                                         Solutions that work together
                                     </h3>

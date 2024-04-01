@@ -14,7 +14,7 @@ const NotFound = () => {
                                     <span>
                                         <PiWarningCircleLight />
                                     </span>
-                                    Oops! Somthing's missing.
+                                    Oops! Something&apos;s missing.
                                 </p>
                                 <p className="uni-head head1">
                                     Page not found
@@ -22,8 +22,8 @@ const NotFound = () => {
                             </div>
                         </div>
                         <p className={'inner-text'}>
-                            It seems like we dont find what you searched. The page you were looking for doesn't exist,
-                            isn't available loading incorrectly.
+                            It seems like we dont find what you searched. The page you were looking for doesn&apos;t exist,
+                            isn&apos;t available loading incorrectly.
                         </p>
                         <Link to={'/'} className={'btn btn-md cart-btn'}>
                             Back to home

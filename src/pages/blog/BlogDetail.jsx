@@ -3,6 +3,7 @@ import {Link, useParams} from "react-router-dom";
 // Context
 import {PostsContext} from "/src/context/Posts/PostsContext";
 import {UsersContext} from "/src/context/Users/UsersContext";
+import {ProductContext} from "/src/context/Products/ProductContext.jsx";
 // Swiper
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
@@ -11,6 +12,7 @@ import {FaFacebookF, FaTwitter, FaInstagram, FaDiscord, FaLinkedinIn, FaBell} fr
 import {IoIosArrowRoundBack, IoIosArrowRoundForward} from "react-icons/io";
 // Components
 import {LatestBlogCard, RelatedPostCard} from "/src/components/BlogCards";
+import {RecentViewedCard} from "../../components/ProductCards.jsx";
 
 const BlogDetail = () => {
     const {id} = useParams();
@@ -19,6 +21,8 @@ const BlogDetail = () => {
 
     const {users} = useContext(UsersContext);
     const authUser = users.find(user => user.id === post.userId);
+
+    const {products} = useContext(ProductContext);
     return (
         post && authUser &&
         <>
@@ -106,7 +110,7 @@ const BlogDetail = () => {
                                 </p>
                                 <div className="blog-list-item">
                                     <h3 className="blog-title">
-                                        <Link to={post.id.toString()}>
+                                        <Link to={`/blog/${post.id.toString()}`}>
                                             “An oral history of the AIM away message (by the people who were there)”
                                         </Link>
                                     </h3>
@@ -151,8 +155,9 @@ const BlogDetail = () => {
                                 </p>
                                 <p>
                                     The SuperRep 2 evolves an important facet of modern fitness — training as sport —
-                                    and the idea that it's deserving of footwear designed to support the performance
-                                    needs specific to these movements. That's why the shoe keeps the tech from the
+                                    and the idea that it&ampos;s deserving of footwear designed to support the
+                                    performance
+                                    needs specific to these movements. That&apos;s why the shoe keeps the tech from the
                                     original SuperRep, like the forefoot Zoom Air units for pop on jumps, a reinforced
                                     rand to brace against lateral bounds and a flexible “burpee break” for everyone’s
                                     favorite total-body punisher.
@@ -172,6 +177,13 @@ const BlogDetail = () => {
                                     Latest posts
                                 </h4>
                                 {posts.map((post, index) => index < 4 && <LatestBlogCard key={index} {...post} />)}
+                            </div>
+                            <div className="right-item">
+                                <h4 className="auth-name">
+                                    Recent Viewed Products
+                                </h4>
+                                {products.map((product, index) => index < 4 &&
+                                    <RecentViewedCard key={index} {...product} />)}
                             </div>
                         </div>
                     </div>

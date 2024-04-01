@@ -165,3 +165,34 @@ export const ProductCard = ({product, addWish, addCart}) => {
         </>
     )
 }
+
+export const RecentViewedCard = ({id, title, thumbnail, price, discountPercentage}) => {
+    return (
+        <>
+            <div className="latest-post-card">
+                <div className="post-img">
+                    <Link to={`/products/${id.toString()}`}>
+                        <img src={thumbnail} alt=""/>
+                    </Link>
+                </div>
+                <div className="post-detail">
+                    <h4 className="post-title">
+                        <Link to={`/products/${id.toString()}`}>
+                            {title}
+                        </Link>
+                    </h4>
+                    <p className="post-sub-detail">
+                         <span className={`${discountPercentage ? "old-price" : "none"} product-price`}>
+                            {price.toFixed(2)}
+                        </span>
+                        <span className="product-price">
+                           {discountPercentage ? (price - (price * (discountPercentage) / 100)).toFixed(2) :
+                               price.toFixed(2)
+                           }
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </>
+    )
+}

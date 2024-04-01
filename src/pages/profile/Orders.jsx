@@ -25,7 +25,7 @@ const Orders = () => {
                             <td>Processing</td>
                             <td>$326.63 for 3 items</td>
                             <td>
-                                <Link className="btn btn-white">View</Link>
+                                <Link to={"/contact"} className="btn btn-white">View</Link>
                             </td>
                         </tr>
                         <tr>
@@ -34,7 +34,7 @@ const Orders = () => {
                             <td>Processing</td>
                             <td>$326.63 for 3 items</td>
                             <td>
-                                <Link className="btn btn-white">View</Link>
+                                <Link to={"/contact"} className="btn btn-white">View</Link>
                             </td>
                         </tr>
                         <tr>
@@ -43,7 +43,7 @@ const Orders = () => {
                             <td>Processing</td>
                             <td>$326.63 for 3 items</td>
                             <td>
-                                <Link className="btn btn-white">View</Link>
+                                <Link to={"/contact"} className="btn btn-white">View</Link>
                             </td>
                         </tr>
                         <tr>
@@ -52,7 +52,7 @@ const Orders = () => {
                             <td>Processing</td>
                             <td>$326.63 for 3 items</td>
                             <td>
-                                <Link className="btn btn-white">View</Link>
+                                <Link to={"/contact"} className="btn btn-white">View</Link>
                             </td>
                         </tr>
                         <tr>
@@ -61,7 +61,7 @@ const Orders = () => {
                             <td>Processing</td>
                             <td>$326.63 for 3 items</td>
                             <td>
-                                <Link className="btn btn-white">View</Link>
+                                <Link to={"/contact"} className="btn btn-white">View</Link>
                             </td>
                         </tr>
                     </tbody>

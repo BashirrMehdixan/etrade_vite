@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 // Icons
-import { CiHeadphones } from "react-icons/ci";
+import {CiHeadphones} from "react-icons/ci";
 
 // CSS
 import "./css/Sales.css"
@@ -17,9 +17,9 @@ const Sales = () => {
                                 <div className="head-box">
                                     <p className="best-deal">
                                         <span>
-                                            <CiHeadphones />
+                                            <CiHeadphones/>
                                         </span>
-                                        don't miss!!
+                                        don&apos;t miss!!
                                     </p>
                                     <div className="uni-head head1">
                                         Enhance Your Music Experience
@@ -46,7 +46,7 @@ const Sales = () => {
                                 <Link to="/products" className="btn btn-blue">Check it Out!</Link>
                             </div>
                             <div className="sales-right">
-                                <img src={"../assets//images/posters/poster-03.png"} alt="" />
+                                <img src={"../assets//images/posters/poster-03.png"} alt=""/>
                                 <div className="wave-box">
                                     <div className="wave-item wave-1"></div>
                                     <div className="wave-item wave-2"></div>

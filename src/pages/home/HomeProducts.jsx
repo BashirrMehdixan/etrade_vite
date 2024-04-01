@@ -15,10 +15,10 @@ import 'swiper/css/grid';
 import 'swiper/css/navigation';
 
 // Context
-import {ProductContext} from "/src/context/Products/ProductContext.jsx";
+import {ProductContext} from "/src/context/Products/ProductContext";
 
 // Components
-import {ProductCard} from "/src/components/ProductCards.jsx";
+import {ProductCard} from "/src/components/ProductCards";
 
 // Actions
 import {addToCart} from "/src/features/cart";

@@ -7,7 +7,7 @@ const Downloads = () => {
                 <title>eTrade | Downloads</title>
             </Helmet>
             <p className="dashboard-inner">
-                You don't have any download
+                You don&apos;t have any download
             </p>
         </>
     )

@@ -1,20 +1,20 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import { db, signup } from "/src/store/firebase";
-import { AuthContext } from "/src/context/Auth/AuthContext";
+import {useContext, useState} from "react";
+import {Link} from "react-router-dom";
+import {doc, collection, serverTimestamp, setDoc} from "firebase/firestore";
+import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet";
+import {db, signup} from "/src/store/firebase";
+import {AuthContext} from "/src/context/Auth/AuthContext";
 
 const Register = () => {
     const navigate = useNavigate();
-    const { dispatch } = useContext(AuthContext)
+    const {dispatch} = useContext(AuthContext)
     const [data, setData] = useState({});
 
     const handleInput = e => {
         const id = e.target.id;
         const value = e.target.value;
-        setData({ ...data, [id]: value });
+        setData({...data, [id]: value});
     }
 
     const handleSubmit = async (e) => {
@@ -33,7 +33,7 @@ const Register = () => {
         });
 
         if (user) {
-            dispatch({ type: "LOGIN", payload: user })
+            dispatch({type: "LOGIN", payload: user})
             navigate("/profile",
                 {
                     replace: true
@@ -47,6 +47,9 @@ const Register = () => {
             </Helmet>
             <div className="signup-block">
                 <div className="left-item bg-image">
+                    <Link to={"/"}>
+                        <img src={"../assets/images/logo/logo.png"} alt=""/>
+                    </Link>
                 </div>
                 <div className="right-item">
                     <div className="head-box flex-head">
@@ -56,7 +59,7 @@ const Register = () => {
                     <div className="container">
                         <div className="head-box">
                             <p className="head2">
-                                I'm New Here
+                                I&apos;m New Here
                             </p>
                             <div className="subhead">Enter your detail below</div>
                         </div>
