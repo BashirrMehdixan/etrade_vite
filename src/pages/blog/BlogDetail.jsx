@@ -1,23 +1,23 @@
-import { useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import {useContext} from "react";
+import {Link, useParams} from "react-router-dom";
 // Context
-import { PostsContext } from "/src/context/Posts/PostsContext";
-import { UsersContext } from "/src/context/Users/UsersContext";
+import {PostsContext} from "/src/context/Posts/PostsContext";
+import {UsersContext} from "/src/context/Users/UsersContext";
 // Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Navigation} from "swiper/modules";
 // Icons
-import { FaFacebookF, FaTwitter, FaInstagram, FaDiscord, FaLinkedinIn, FaBell } from "react-icons/fa";
-import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
+import {FaFacebookF, FaTwitter, FaInstagram, FaDiscord, FaLinkedinIn, FaBell} from "react-icons/fa";
+import {IoIosArrowRoundBack, IoIosArrowRoundForward} from "react-icons/io";
 // Components
-import { LatestBlogCard, RelatedPostCard } from "/src/components/BlogCards";
+import {LatestBlogCard, RelatedPostCard} from "/src/components/BlogCards";
 
 const BlogDetail = () => {
-    const { id } = useParams();
-    const { posts } = useContext(PostsContext);
+    const {id} = useParams();
+    const {posts} = useContext(PostsContext);
     const post = posts.find(post => post.id === parseInt(id));
 
-    const { users } = useContext(UsersContext);
+    const {users} = useContext(UsersContext);
     const authUser = users.find(user => user.id === post.userId);
     return (
         post && authUser &&
@@ -25,7 +25,7 @@ const BlogDetail = () => {
             <section id="blog-detail " className='blog-detail-section'>
                 <div className="container">
                     <div className="post-img">
-                        <img src={'../assets/images/blog/blog-single.jpg'} alt="" />
+                        <img src={'../assets/images/blog/blog-single.jpg'} alt=""/>
                     </div>
                     <div className="blog-detail-container">
                         <div className="left-side">
@@ -35,27 +35,27 @@ const BlogDetail = () => {
                             <ul className="social-link">
                                 <li>
                                     <Link to={"https://facebook.com"} target="_blank">
-                                        <FaFacebookF />
+                                        <FaFacebookF/>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={"https://instagram.com"} target="_blank">
-                                        <FaInstagram />
+                                        <FaInstagram/>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={"https://twitter.com"} target="_blank">
-                                        <FaTwitter />
+                                        <FaTwitter/>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={"https://linkedin.com"} target="_blank">
-                                        <FaLinkedinIn />
+                                        <FaLinkedinIn/>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={"https://discord.com"} target="_blank">
-                                        <FaDiscord />
+                                        <FaDiscord/>
                                     </Link>
                                 </li>
                             </ul>
@@ -66,7 +66,7 @@ const BlogDetail = () => {
                             </h3>
                             <div className="post-auth">
                                 <div className="auth-img">
-                                    <img src={authUser.image} alt={authUser.name} />
+                                    <img src={authUser.image} alt={authUser.name}/>
                                 </div>
                                 <div className="post-info">
                                     <h5 className="auth-name">
@@ -112,7 +112,7 @@ const BlogDetail = () => {
                                     </h3>
                                     <div className="post-auth">
                                         <div className="auth-img">
-                                            <img src={authUser.image} alt={authUser.name} />
+                                            <img src={authUser.image} alt={authUser.name}/>
                                         </div>
                                         <div className="post-info">
                                             <h5 className="auth-name">
@@ -137,10 +137,10 @@ const BlogDetail = () => {
                                 </p>
                                 <div className="img-box">
                                     <div className="single-img">
-                                        <img src={"../assets/images/blog/blog-img.png"} alt="" />
+                                        <img src={"../assets/images/blog/blog-img.png"} alt=""/>
                                     </div>
                                     <div className="single-img">
-                                        <img src={"../assets/images/blog/blog-02.png"} alt="" />
+                                        <img src={"../assets/images/blog/blog-02.png"} alt=""/>
                                     </div>
                                 </div>
                                 <p>
@@ -171,7 +171,7 @@ const BlogDetail = () => {
                                 <h4 className="auth-name">
                                     Latest posts
                                 </h4>
-                                {posts.map((post, index) => index < 4 && <LatestBlogCard key={index} post={post} />)}
+                                {posts.map((post, index) => index < 4 && <LatestBlogCard key={index} {...post} />)}
                             </div>
                         </div>
                     </div>
@@ -180,7 +180,7 @@ const BlogDetail = () => {
                         <div className="head-box products-head">
                             <p className="best-deal purple-head">
                                 <span>
-                                    <FaBell />
+                                    <FaBell/>
                                 </span>
                                 Hot News
                             </p>
@@ -189,10 +189,10 @@ const BlogDetail = () => {
                             </p>
                         </div>
                         <div className="swiper-product-btn image-swiper-button-next">
-                            <IoIosArrowRoundForward />
+                            <IoIosArrowRoundForward/>
                         </div>
                         <div className="swiper-product-btn image-swiper-button-prev">
-                            <IoIosArrowRoundBack />
+                            <IoIosArrowRoundBack/>
                         </div>
                         <Swiper
                             slidesPerView={1}
@@ -218,7 +218,7 @@ const BlogDetail = () => {
                             {posts.map((post, index) => {
                                 return (
                                     <SwiperSlide key={index}>
-                                        <RelatedPostCard post={post} />
+                                        <RelatedPostCard post={post}/>
                                     </SwiperSlide>
                                 )
                             })}

@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Link, useLocation} from "react-router-dom";
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
-import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import {Navigation} from 'swiper/modules';
+import {IoIosArrowRoundForward, IoIosArrowRoundBack} from "react-icons/io";
 import "./css/Offers.css";
 
 export const Offers = () => {
+    const location = useLocation();
     const offers = [
         {
             name: "students now get ",
@@ -18,12 +19,12 @@ export const Offers = () => {
         },
     ]
     return (
-        <div className="campaign-bg relative">
+        <div className={`${location.pathname === "/" && "none"} campaign-bg relative`}>
             <button className="image-swiper-button-next offer-btn">
-                <IoIosArrowRoundForward />
+                <IoIosArrowRoundForward/>
             </button>
             <button className="image-swiper-button-prev offer-btn">
-                <IoIosArrowRoundBack />
+                <IoIosArrowRoundBack/>
             </button>
             <Swiper
                 navigation={{

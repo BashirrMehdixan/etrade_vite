@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { Link } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import {useContext} from "react";
+import {Link} from 'react-router-dom';
+import {useDispatch} from "react-redux";
 // Swiper
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Grid, Navigation } from 'swiper/modules';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Grid, Navigation} from 'swiper/modules';
 
 // Icons
-import { FaShoppingBasket } from "react-icons/fa";
-import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import {FaShoppingBasket} from "react-icons/fa";
+import {IoIosArrowRoundForward, IoIosArrowRoundBack} from "react-icons/io";
 
 // CSS
 import 'swiper/css';
@@ -15,19 +15,19 @@ import 'swiper/css/grid';
 import 'swiper/css/navigation';
 
 // Context
-import { ProductContext } from "/src/context/Products/ProductContext.jsx";
+import {ProductContext} from "/src/context/Products/ProductContext.jsx";
 
 // Components
-import { HomeProductCard } from "/src/components/ProductCards.jsx";
+import {ProductCard} from "/src/components/ProductCards.jsx";
 
 // Actions
-import { addToCart } from "/src/features/cart";
-import { addToWishlist } from "/src/features/wishlist";
+import {addToCart} from "/src/features/cart";
+import {addToWishlist} from "/src/features/wishlist";
 
 import "./css/HomeProducts.css";
 
 const HomeProducts = () => {
-    const { products } = useContext(ProductContext);
+    const {products} = useContext(ProductContext);
     const dispatch = useDispatch();
     const addCart = (product) => {
         dispatch(addToCart(product));
@@ -43,7 +43,7 @@ const HomeProducts = () => {
                     <div className="head-box products-head purple-head" data-aos="fade-down">
                         <p className="best-deal purple-head">
                             <span>
-                                <FaShoppingBasket />
+                                <FaShoppingBasket/>
                             </span>
                             Our products
                         </p>
@@ -52,10 +52,10 @@ const HomeProducts = () => {
                         </p>
                     </div>
                     <div className="swiper-product-btn image-swiper-button-next">
-                        <IoIosArrowRoundForward />
+                        <IoIosArrowRoundForward/>
                     </div>
                     <div className="swiper-product-btn image-swiper-button-prev">
-                        <IoIosArrowRoundBack />
+                        <IoIosArrowRoundBack/>
                     </div>
                     <Swiper
                         slidesPerView={1}
@@ -85,7 +85,7 @@ const HomeProducts = () => {
                         {products.map((product, index) => {
                             return (
                                 <SwiperSlide key={index}>
-                                    <HomeProductCard product={product} addCart={addCart} addWish={addWish} />
+                                    <ProductCard product={product} addCart={addCart} addWish={addWish}/>
                                 </SwiperSlide>
                             )
                         })}

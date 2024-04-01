@@ -12,14 +12,14 @@ const Blog = () => {
                 <div className="container">
                     <div className="blog-box">
                         <div className="left-side">
-                            {posts.length && posts.map((post, index) => <BlogGridCard key={index} post={post} />)}
+                            {posts.length && posts.map((post, index) => <BlogGridCard key={index} {...post} />)}
                         </div>
                         <div className="right-side">
                             <div className="right-item">
                                 <h4 className="auth-name">
                                     Latest posts
                                 </h4>
-                                {posts.map((post, index) => index < 4 && <LatestBlogCard key={index} post={post} />)}
+                                {posts.map((post, index) => index < 4 && <LatestBlogCard key={index} {...post} />)}
                             </div>
                         </div>
                     </div>
