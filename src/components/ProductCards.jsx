@@ -1,26 +1,26 @@
-import {Link, useLocation} from "react-router-dom";
-import {FaRegEye, FaRegHeart, FaStar} from "react-icons/fa";
-import {CiHeart, CiShoppingCart} from "react-icons/ci";
+import { Link, useLocation } from "react-router-dom";
+import { FaRegEye, FaRegHeart, FaStar } from "react-icons/fa";
+import { CiHeart, CiShoppingCart } from "react-icons/ci";
 
-export const ArrivalCard = ({product, addCart, addWish}) => {
+export const ArrivalCard = ({ product, addCart, addWish }) => {
     return (
         <>
             <div className="product-item">
                 <Link to={`/products/${product.id}`} className="product-img">
-                    <img src={product.thumbnail} alt={product.title}/>
+                    <img src={product.thumbnail} alt={product.title} />
                 </Link>
                 <p className={product.discountPercentage === 0 ? "none" : "discount"}>
                     {product.discountPercentage.toFixed(0)}% Off
                 </p>
                 <div className="product-info">
                     <Link to={`/products/${product.id}`}
-                          className="product-name">{product.title}</Link>
+                        className="product-name">{product.title}</Link>
                     <div className="product-prices">
                         <p className={"price sale-price"}>
                             ${product.discountPercentage ?
-                            (product.price - (product.price * (product.discountPercentage) / 100)).toFixed(2) :
-                            product.price.toFixed(2)
-                        }
+                                (product.price - (product.price * (product.discountPercentage) / 100)).toFixed(2) :
+                                product.price.toFixed(2)
+                            }
                         </p>
                         <p className={product.discountPercentage === 0 ? 'none' : 'price product-price'}>
                             ${(product.price - (product.price * (product.discountPercentage) / 100)).toFixed(2)}
@@ -29,13 +29,13 @@ export const ArrivalCard = ({product, addCart, addWish}) => {
                 </div>
                 <div className="cart-action">
                     <button className="btn action-btn look-btn">
-                        <FaRegEye/>
+                        <FaRegEye />
                     </button>
                     <button className="btn cart-btn" onClick={() => addCart(product)}>
                         Add to Cart
                     </button>
                     <button className="btn action-btn wish-btn" onClick={() => addWish(product)}>
-                        <FaRegHeart/>
+                        <FaRegHeart />
                     </button>
                 </div>
             </div>
@@ -43,31 +43,31 @@ export const ArrivalCard = ({product, addCart, addWish}) => {
     )
 }
 
-export const PopularCard = ({product, addWish, addCart}) => {
+export const PopularCard = ({ product, addWish, addCart }) => {
     return (
         <>
             <div className="popular-product-item">
                 <div className="product-info-block">
                     <div className="product-img">
-                        <img src={product.thumbnail} alt={product.title}/>
+                        <img src={product.thumbnail} alt={product.title} />
                     </div>
                     <div className="info-item">
                         <div className="top-info">
                             <ul className="product-rate">
                                 <li className="rate-item">
-                                    <FaStar/>
+                                    <FaStar />
                                 </li>
                                 <li className="rate-item">
-                                    <FaStar/>
+                                    <FaStar />
                                 </li>
                                 <li className="rate-item">
-                                    <FaStar/>
+                                    <FaStar />
                                 </li>
                                 <li className="rate-item">
-                                    <FaStar/>
+                                    <FaStar />
                                 </li>
                                 <li className="rate-item">
-                                    <FaStar/>
+                                    <FaStar />
                                 </li>
                             </ul>
                             <div className="review-item">
@@ -77,7 +77,7 @@ export const PopularCard = ({product, addWish, addCart}) => {
                                 Review
                             </div>
                         </div>
-                        <Link to={`products/${product.id}`} className="product-name">
+                        <Link to={`/products/${product.id}`} className="product-name">
                             {product.title}
                         </Link>
                         <div className="prices">
@@ -93,12 +93,12 @@ export const PopularCard = ({product, addWish, addCart}) => {
                 <div className="product-action">
                     <div className="p-action">
                         <button className="btn action-btn btn-cart"
-                                onClick={() => addCart(product)}>
-                            <CiShoppingCart/>
+                            onClick={() => addCart(product)}>
+                            <CiShoppingCart />
                         </button>
                         <button className="btn action-btn wish-btn"
-                                onClick={() => addWish(product)}>
-                            <CiHeart/>
+                            onClick={() => addWish(product)}>
+                            <CiHeart />
                         </button>
                     </div>
                 </div>
@@ -107,13 +107,13 @@ export const PopularCard = ({product, addWish, addCart}) => {
     )
 }
 
-export const ProductCard = ({product, addWish, addCart}) => {
+export const ProductCard = ({ product, addWish, addCart }) => {
     const location = useLocation();
     return (
         <>
             <div className="product-item hover-product" data-aos="flip-up">
-                <Link to={`products/${product.id}`} className="product-img">
-                    <img src={product.thumbnail} alt={product.title}/>
+                <Link to={`/products/${product.id}`} className="product-img">
+                    <img src={product.thumbnail} alt={product.title} />
                 </Link>
                 <p className={product.discountPercentage === 0 ? "none" : "discount"}>
                     {product.discountPercentage.toFixed(0)}%
@@ -122,19 +122,19 @@ export const ProductCard = ({product, addWish, addCart}) => {
                     {location.pathname !== "/products" &&
                         <ul className="product-rate">
                             <li className="rate-item">
-                                <FaStar/>
+                                <FaStar />
                             </li>
                             <li className="rate-item">
-                                <FaStar/>
+                                <FaStar />
                             </li>
                             <li className="rate-item">
-                                <FaStar/>
+                                <FaStar />
                             </li>
                             <li className="rate-item">
-                                <FaStar/>
+                                <FaStar />
                             </li>
                             <li className="rate-item">
-                                <FaStar/>
+                                <FaStar />
                             </li>
                         </ul>}
                     <Link to={`/products/${product.id}`} className="product-name">
@@ -151,14 +151,14 @@ export const ProductCard = ({product, addWish, addCart}) => {
                 </div>
                 <div className="cart-action">
                     <button className="btn action-btn look-btn">
-                        <FaRegEye/>
+                        <FaRegEye />
                     </button>
                     <button className="btn cart-btn" onClick={() => addCart(product)}>
                         Add to Cart
                     </button>
                     <button className="btn action-btn wish-btn"
-                            onClick={() => addWish(product)}>
-                        <FaRegHeart/>
+                        onClick={() => addWish(product)}>
+                        <FaRegHeart />
                     </button>
                 </div>
             </div>
@@ -166,13 +166,13 @@ export const ProductCard = ({product, addWish, addCart}) => {
     )
 }
 
-export const RecentViewedCard = ({id, title, thumbnail, price, discountPercentage}) => {
+export const RecentViewedCard = ({ id, title, thumbnail, price, discountPercentage }) => {
     return (
         <>
             <div className="latest-post-card">
                 <div className="post-img">
                     <Link to={`/products/${id.toString()}`}>
-                        <img src={thumbnail} alt=""/>
+                        <img src={thumbnail} alt="" />
                     </Link>
                 </div>
                 <div className="post-detail">
@@ -182,13 +182,13 @@ export const RecentViewedCard = ({id, title, thumbnail, price, discountPercentag
                         </Link>
                     </h4>
                     <p className="post-sub-detail">
-                         <span className={`${discountPercentage ? "old-price" : "none"} product-price`}>
+                        <span className={`${discountPercentage ? "old-price" : "none"} product-price`}>
                             {price.toFixed(2)}
                         </span>
                         <span className="product-price">
-                           {discountPercentage ? (price - (price * (discountPercentage) / 100)).toFixed(2) :
-                               price.toFixed(2)
-                           }
+                            {discountPercentage ? (price - (price * (discountPercentage) / 100)).toFixed(2) :
+                                price.toFixed(2)
+                            }
                         </span>
                     </p>
                 </div>

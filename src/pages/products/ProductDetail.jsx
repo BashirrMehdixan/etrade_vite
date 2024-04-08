@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,8 +14,7 @@ import { CiStar } from "react-icons/ci";
 import { FaRegStar, FaStar, FaShoppingBag, FaShoppingCart } from "react-icons/fa";
 
 // Actions
-import { addToCart } from "/src/features/cart";
-import { Counter } from "/src/components/Counter.jsx";
+import { addToCart, decrement } from "/src/features/cart";
 
 
 // CSS
@@ -24,13 +23,18 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const ProductDetail = () => {
+    const [count, setCount] = useState(1)
     const { products } = useContext(ProductContext);
     const { id } = useParams();
     const dispatch = useDispatch();
     const addCart = (product) => {
         dispatch(addToCart(product));
+        setCount(count => count + 1);
     }
-
+    const dec = (product) => {
+        dispatch(decrement(product))
+        count > 1 && setCount(count => count - 1);
+    }
     const product = products.find(product => product.id === parseInt(id));
 
     return (
@@ -130,14 +134,24 @@ const ProductDetail = () => {
                                 </div>
                                 <div className="cart-section">
                                     <p className="subhead">Quantity: </p>
-                                    <Counter />
+                                    <ul className="cart-item">
+                                        <li>
+                                            <button className="btn btn-dec" onClick={() => dec({ id: product.id })}>-</button>
+                                        </li>
+                                        <li>
+                                            <input type="text" className="quantity" value={count} />
+                                        </li>
+                                        <li>
+                                            <button className="btn btn-inc" onClick={() => addCart(product)}>+</button>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div className="buttons">
                                     <button className="btn btn-sm cart-btn"><FaShoppingBag />Buy now</button>
-                                    <button className="btn btn-sm btn-blue"
+                                    {/* <button className="btn btn-sm btn-blue"
                                         onClick={() => addCart(product)}>
                                         <FaShoppingCart />Add to cart
-                                    </button>
+                                    </button> */}
                                 </div>
                             </div>
                         </div>

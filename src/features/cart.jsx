@@ -20,7 +20,6 @@ const cart = createSlice({
                 } else {
                     existingItem.total += existingItem.price;
                 }
-                ;
             } else {
                 const newItem = {
                     ...action.payload,
